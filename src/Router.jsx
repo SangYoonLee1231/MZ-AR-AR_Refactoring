@@ -20,16 +20,34 @@ const router = createBrowserRouter([
         path: "login",
         element: <LoginPage />,
         errorElement: <ErrorComponent />,
+        // children: [
+        //   {
+        //     path: "comppnentName",
+        //     element: <ComponentName />,
+        //   },
+        // ],
       },
       {
         path: "ar-center",
         element: <ArCenterPage />,
         errorElement: <ErrorComponent />,
+        // children: [
+        //   {
+        //     path: "comppnentName",
+        //     element: <ComponentName />,
+        //   },
+        // ],
       },
       {
         path: "event",
         element: <EventPage />,
         errorElement: <ErrorComponent />,
+        // children: [
+        //   {
+        //     path: "comppnentName",
+        //     element: <ComponentName />,
+        //   },
+        // ],
       },
     ],
     errorElement: <ErrorComponent />,
