@@ -1,0 +1,70 @@
+// @import "./../../styles/common";
+// @import "./../../styles/mixin";
+// @import './../../styles/variables';
+
+.camera-container {
+    position: relative;
+}
+
+.camera {
+    width: 100%;
+    max-width: 640px;
+}
+
+.overlay-image {
+    position: absolute;
+    top: 200px;
+    left: 800px;
+    z-index: 2;
+    opacity: 0.5;
+}
+
+.overlay-button {
+    position: absolute;
+    top: 460px;
+    left: 600px;
+    z-index: 6;
+    display: inline-flex;
+}
+
+.circle {
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    top: 470px;
+    left: 800px;
+    z-index: 5;
+}
+
+.line {
+    position: absolute;
+    background-color: red;
+    top: 420px;
+    left: 550px;
+    z-index: 3;
+    width: 600px;
+    height: 2px;
+}
+
+.button-style {
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    border-radius: 20%;
+}
+
+.SizedBox {
+    width: 30px;
+}
+
+.tilt-div {
+    transition: transform 0.5s ease;
+
+    &.left {
+        transform: skewX(-20deg);
+    }
+
+    &.right {
+        transform: skewX(20deg);
+    }
+}
