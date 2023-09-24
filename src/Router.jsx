@@ -9,6 +9,12 @@ import ErrorComponent from "./ErrorComponent";
 import Camera_User from "./pages/Camera_User/Camera_User";
 import Camera from "./pages/Camera/Camera";
 import SignUp from "./pages/SignUp/SignUp";
+import Contest from "./pages/contest/contest";
+import ArProductNumber from "./pages/ArProductNumber/ArProductNumber";
+import WillYouPost from "./pages/WillYouPost/WillYouPost";
+import WriteTitle from "./pages/WriteTitle/WriteTitle";
+import Exchange from "./pages/ExchangePage/Exchange";
+import KeepPage from "./pages/KeepPage/KeepPage";
 
 const router = createBrowserRouter([
   {
@@ -92,7 +98,63 @@ const router = createBrowserRouter([
       },
       {
         path: "i",
-        element: <contest />,
+        element: <Contest />,
+        errorElement: <ErrorComponent />,
+        // children: [
+        //   {
+        //     path: "comppnentName",
+        //     element: <ComponentName />,
+        //   },
+        // ],
+      },
+      {
+        path: "j",
+        element: <ArProductNumber />,
+        errorElement: <ErrorComponent />,
+        // children: [
+        //   {
+        //     path: "comppnentName",
+        //     element: <ComponentName />,
+        //   },
+        // ],
+      },
+
+      {
+        path: "k",
+        element: <WillYouPost />,
+        errorElement: <ErrorComponent />,
+        // children: [
+        //   {
+        //     path: "comppnentName",
+        //     element: <ComponentName />,
+        //   },
+        // ],
+      },
+      {
+        path: "l",
+        element: <WriteTitle />,
+        errorElement: <ErrorComponent />,
+        // children: [
+        //   {
+        //     path: "comppnentName",
+        //     element: <ComponentName />,
+        //   },
+        // ],
+      },
+      {
+        path: "m",
+        element: <Exchange />,
+        errorElement: <ErrorComponent />,
+        // children: [
+        //   {
+        //     path: "comppnentName",
+        //     element: <ComponentName />,
+        //   },
+        // ],
+      },
+      {
+        path: "n",
+        element: <KeepPage />,
         errorElement: <ErrorComponent />,
         // children: [
         //   {

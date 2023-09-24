@@ -39,7 +39,8 @@ const Camera_User = () => {
             <html>
             <body>
                 <img src="${imageSrc}" alt="이미지">
-                <button id="backButton">뒤로 가기</button>
+                <button id="backButton">다시 촬영하기</button>
+                <button id="goToNextButton">다음 단계로 이동</button>
             </body>
             </html>
         `);
@@ -48,6 +49,14 @@ const Camera_User = () => {
             backButton.addEventListener("click", () => {
                 newWindow.close(); //새 창을 닫고
                 window.focus(); //원래 창으로 포커스를 돌려줌
+            });
+
+            var goToNextButton = newWindow.document.getElementById("goToNextButton");
+            goToNextButton.addEventListener("click", () => {
+                newWindow.close();
+                window.focus(); //원래 창으로 포커스를 돌리고
+                //다음 화면으로 이동
+                window.location.href = '/l';
             });
         } else {
             alert("팝업 창이 차단되었습니다. 브라우저 설정에서 팝업 차단을 해제해주세요.");

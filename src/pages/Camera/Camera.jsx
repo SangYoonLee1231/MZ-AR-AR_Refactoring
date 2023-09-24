@@ -34,6 +34,7 @@ const Camera = () => {
             <body>
                 <img src="${imageSrc}" alt="이미지">
                 <button id="backButton">뒤로 가기</button>
+            
             </body>
             </html>
         `);
@@ -43,6 +44,8 @@ const Camera = () => {
                 newWindow.close(); //새 창을 닫고
                 window.focus(); //원래 창으로 포커스를 돌려줌
             });
+
+
         } else {
             alert("팝업 창이 차단되었습니다. 브라우저 설정에서 팝업 차단을 해제해주세요.");
         }

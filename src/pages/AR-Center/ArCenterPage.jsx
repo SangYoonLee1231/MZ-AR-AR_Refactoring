@@ -1,11 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Nav from '../../components/Nav.jsx';
-import LogIn from '../Login/LoginPage.jsx';
-import SignUp from '../SignUp/SignUp.jsx';
-import Camera from '../Camera/Camera.jsx';
-import Camera_User from '../Camera_User/Camera_User.jsx';
-import LogIn_noMember from '../LogIn_noMember/LogIn_noMember.jsx';
 import "./ArCenterPage.scss";
 
 const A = () => {
@@ -24,18 +19,49 @@ const A = () => {
         </div>
       </div>
       <div className="center">
-        <h1>여기는 AR 서비스가 모여있는 화면A</h1>
+
         <div className="horiz-style">
-          <Link to="/b">
-            <button>AR 카메라로 이동하기</button>
-          </Link>
-          <Link to="/c">
-            <button>도안 직접 업로드하기</button>
+          <div className="bigButton-style">
+            <Link to="/j">
+              <button className="full-button">
+                <div className="center">
+                  <div className="center">
+                    <a className="big-font">AR로</a>
+                    <a className="big-font">제품 착용하기</a>
+                    <div className="SizedBox"></div>
+                    <a>진열돼있지 않은 상품도</a>
+                    <a>착용해보세요.</a>
+                  </div>
+                </div>
+              </button>
+            </Link>
+          </div>
+          <div className="bigButton-style">
+            <Link to="/c">
+              <button className="full-button">
+                <div className="center">
+                  <a className="big-font">AR 트릭아트</a>
+                  <a className="big-font">사진찍기</a>
+                  <div className="SizedBox"></div>
+                  <a>포토존을 찾아</a>
+                  <a>독특한 사진을 찍어보세요.</a>
+                </div>
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div className="horiz-bigButton-style">
+          <Link to="/i">
+            <button className="full-button">
+              <div className="center">
+                <a className="big-font">AR 트릭아트 사진 대전</a>
+                <div className="SizedBox"></div>
+                <a>사진을 공개하고 좋아요를 받아보세요.</a>
+                <a>특별한 선물이 준비돼있어요.</a>
+              </div>
+            </button>
           </Link>
         </div>
-        <Link to="/i">
-          <button>AR 트릭아트 사진대전</button>
-        </Link>
       </div>
       <Nav />
     </div>
