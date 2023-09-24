@@ -1,3 +1,25 @@
 // @import "./../../styles/common";
 // @import "./../../styles/mixin";
 // @import './../../styles/variables';
+
+.SizedBox {
+    height: 50px;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.margin {
+    margin-left: 20%;
+}
+
+.ad-style {
+    width: 400px;
+    height: 300px;
+    border-radius: 30;
+    border: 2px solid red;
+    margin-bottom: 30px;
+}

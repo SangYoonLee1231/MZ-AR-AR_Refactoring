@@ -90,6 +90,17 @@ const router = createBrowserRouter([
         //   },
         // ],
       },
+      {
+        path: "i",
+        element: <contest />,
+        errorElement: <ErrorComponent />,
+        // children: [
+        //   {
+        //     path: "comppnentName",
+        //     element: <ComponentName />,
+        //   },
+        // ],
+      },
 
     ],
     errorElement: <ErrorComponent />,

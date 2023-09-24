@@ -1,13 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes, Component } from 'react-router-dom';
 import './MainPage.scss';
 import Nav from '../../components/Nav.jsx';
-import LogIn from '../Login/LoginPage.jsx';
-import SignUp from '../SignUp/SignUp.jsx';
-import Camera from '../Camera/Camera.jsx';
-import Camera_User from '../Camera_User/Camera_User.jsx';
-import LogIn_noMember from '../LogIn_noMember/LogIn_noMember.jsx';
-
+import header from '../../components/header.jsx';
+import ImageSlider from '../imageSlider.jsx';
 
 //화면 Main(메인화면) 컴포넌트를 만든다
 const Main = () => {
@@ -41,16 +37,23 @@ const Main = () => {
         </div>
       </div>
 
-      <h1>여기가 메인 화면~</h1>
-      <Link to="/f">
-        <button>로그인 페이지로 이동하기</button>
-      </Link>
-      <Link to="/g">
-        <button>회원가입 페이지로 이동하기</button>
-      </Link>
-      <Link to="/h">
-        <button>비회원 로그인 페이지로 이동하기</button>
-      </Link>
+      <div className="center">
+        <h1>여기가 메인 화면~</h1>
+        <div className="horiz-style">
+          <Link to="/f">
+            <button>로그인 페이지로 이동하기</button>
+          </Link>
+          <Link to="/g">
+            <button>회원가입 페이지로 이동하기</button>
+          </Link>
+          <Link to="/h">
+            <button>비회원 로그인 페이지로 이동하기</button>
+          </Link>
+        </div>
+        <div className="map">
+          <ImageSlider />
+        </div>
+      </div>
       <Nav />
     </div>
   );

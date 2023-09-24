@@ -11,13 +11,32 @@ import "./ArCenterPage.scss";
 const A = () => {
   return (
     <div>
-      <h1>여기는 AR 서비스가 모여있는 화면A</h1>
-      <Link to="/b">
-        <button>AR 카메라로 이동하기</button>
-      </Link>
-      <Link to="/c">
-        <button>도안 직접 업로드하기</button>
-      </Link>
+      <div className="header-style">
+        <img
+          src="/images/lottelogo.svg"
+          alt="LotteLogo"
+        />
+        <div className="bunddang">
+          <img
+            src="/images/bunddang.svg"
+            alt="bunddangAR"
+          />
+        </div>
+      </div>
+      <div className="center">
+        <h1>여기는 AR 서비스가 모여있는 화면A</h1>
+        <div className="horiz-style">
+          <Link to="/b">
+            <button>AR 카메라로 이동하기</button>
+          </Link>
+          <Link to="/c">
+            <button>도안 직접 업로드하기</button>
+          </Link>
+        </div>
+        <Link to="/i">
+          <button>AR 트릭아트 사진대전</button>
+        </Link>
+      </div>
       <Nav />
     </div>
   );

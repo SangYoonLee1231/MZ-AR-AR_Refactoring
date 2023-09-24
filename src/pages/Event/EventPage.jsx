@@ -11,7 +11,35 @@ import "./EventPage.scss";
 const event = () => {
   return (
     <div>
-      <h1>여기는 이벤트 페이지 !!</h1>
+      <div className="header-style">
+        <img
+          src="/images/lottelogo.svg"
+          alt="LotteLogo"
+        />
+        <div className="bunddang">
+          <img
+            src="/images/bunddang.svg"
+            alt="bunddangAR"
+          />
+        </div>
+      </div>
+      <div className="center">
+        <div className="SizedBox"></div>
+        <h1>여기는 이벤트 페이지 !!</h1>
+        <div className="SizedBox"></div>
+
+        <button
+          onClick={null}
+        >
+          B 사이트 연동하고 포인트 상품권으로 교환하기
+        </button>
+
+        <div className="SizedBox"></div>
+
+        {
+          [1, 2, 3, 4, 5].map(() => { return (<div className="ad-style"></div>) })
+        }
+      </div>
       <Nav />
     </div>
   );

@@ -1,3 +1,15 @@
 @import "./../../styles/common";
 @import "./../../styles/mixin";
 // @import './../../styles/variables';
+
+.center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.horiz-style {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
