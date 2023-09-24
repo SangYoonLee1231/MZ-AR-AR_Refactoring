@@ -7,20 +7,7 @@ import SignUp from '../SignUp/SignUp.jsx';
 import Camera from '../Camera/Camera.jsx';
 import Camera_User from '../Camera_User/Camera_User.jsx';
 import LogIn_noMember from '../LogIn_noMember/LogIn_noMember.jsx';
-const A = () => {
-  return (
-    <div>
-      <h1>여기는 AR 서비스가 모여있는 화면A</h1>
-      <Link to="/b">
-        <button>AR 카메라로 이동하기</button>
-      </Link>
-      <Link to="/c">
-        <button>도안 직접 업로드하기</button>
-      </Link>
-      <Nav />
-    </div>
-  );
-};
+
 
 //화면 Main(메인화면) 컴포넌트를 만든다
 const Main = () => {
@@ -28,12 +15,12 @@ const Main = () => {
     <div>
       <div className="header-style">
         <img
-          src="/logo.svg"
+          src="/images/lottelogo.svg"
           alt="LotteLogo"
         />
         <div className="bunddang">
           <img
-            src="/bunddangAR.svg"
+            src="/images/bunddang.svg"
             alt="bunddangAR"
           />
         </div>
@@ -69,33 +56,4 @@ const Main = () => {
   );
 };
 
-const event = () => {
-  return (
-    <div>
-      <h1>여기는 이벤트 페이지 !!</h1>
-      <Nav />
-    </div>
-  );
-};
-
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/a" element={<Main />} />
-          <Route path="/b" element={<Camera />} />
-          <Route path="/c" element={<Camera_User />} />
-          <Route path="/d" element={<A />} />
-          <Route path="/e" element={<event />} />
-          <Route path="/f" element={<LogIn />} />
-          <Route path="/h" element={<LogIn_noMember />} />
-          <Route path="/g" element={<SignUp />} />
-          <Route path="/" element={<Main />} />
-        </Routes>
-      </div>
-    </Router>
-  );
-}
-
-export default App;
+export default Main;

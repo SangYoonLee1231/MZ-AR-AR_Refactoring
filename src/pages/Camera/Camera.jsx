@@ -99,7 +99,7 @@ const Camera = () => {
 
                     <DraggableDiv>
                         <img
-                            src="/images.jpg"
+                            src="/images/images.png"
                             alt="My Image"
                             className="overlay-image"
                             style={{

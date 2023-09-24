@@ -125,7 +125,7 @@ const Camera_User = () => {
                             />
                         ) : (
                             <img
-                                src="/images.jpg" //기본 이미지 경로는 여기서 설정
+                                src="/images/images.png" //기본 이미지 경로는 여기서 설정
                                 alt="My Image"
                                 className="overlay-image"
                                 style={{

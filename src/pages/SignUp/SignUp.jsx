@@ -27,7 +27,7 @@ function SignUp() {
             setTimeout(() => {
                 setShowToast(false);
                 //이전 화면으로 이동
-                history.goBack();
+                history(-1);
             }, 500); //0.8초 후 토스트 메시지를 숨기고 이동
         } else {
             alert('아이디와 비밀번호를 모두 입력하려무나');
@@ -42,7 +42,7 @@ function SignUp() {
 
             <div>
                 <img
-                    src="/logo.svg"
+                    src="/images/lottelogo.svg"
                     alt="LotteLogo"
                 />
             </div>
