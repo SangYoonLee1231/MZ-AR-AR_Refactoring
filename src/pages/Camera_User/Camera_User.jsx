@@ -56,7 +56,7 @@ const Camera_User = () => {
                 newWindow.close();
                 window.focus(); //원래 창으로 포커스를 돌리고
                 //다음 화면으로 이동
-                window.location.href = '/l';
+                window.location.href = '/k';
             });
         } else {
             alert("팝업 창이 차단되었습니다. 브라우저 설정에서 팝업 차단을 해제해주세요.");

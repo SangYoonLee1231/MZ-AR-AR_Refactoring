@@ -28,7 +28,7 @@ const WillYouPost = () => {
                 <h1>많은 좋아요를 받은 사진의 게시자에게는 롯데백화점 상품권이 수여됩니다.</h1>
                 <div className="SizedBox"></div>
 
-                <Link to="/i">
+                <Link to="/l">
                     <button className="full-button">
                         <a>네, 참가할래요.</a>
                     </button>
