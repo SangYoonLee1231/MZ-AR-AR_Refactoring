@@ -29,13 +29,13 @@ const WillYouPost = () => {
                 <div className="SizedBox"></div>
 
                 <Link to="/l">
-                    <button className="full-button">
+                    <button className="button-style">
                         <a>네, 참가할래요.</a>
                     </button>
                 </Link>
-
+                <div className="SizedBox"></div>
                 <Link to="/a">
-                    <button className="full-button">
+                    <button className="button-style">
                         <a>아니요, 괜찮아요.</a>
                     </button>
                 </Link>

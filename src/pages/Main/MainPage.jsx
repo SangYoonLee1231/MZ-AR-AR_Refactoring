@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, Routes, Component } from 'react-r
 import './MainPage.scss';
 import Nav from '../../components/Nav.jsx';
 import header from '../../components/header.jsx';
-import ImageSlider from '../imageSlider.jsx';
+import ImageSlider from './imageSlider.jsx';
 
 //화면 Main(메인화면) 컴포넌트를 만든다
 const Main = () => {
@@ -38,16 +38,18 @@ const Main = () => {
       </div>
 
       <div className="center">
-        <h1>여기가 메인 화면~</h1>
+        <div className="SizedBox"></div>
         <div className="horiz-style">
           <Link to="/f">
-            <button>로그인 페이지로 이동하기</button>
+            <button className="button-horiz">로그인</button>
           </Link>
+          <div className="SizedBox"></div>
           <Link to="/g">
-            <button>회원가입 페이지로 이동하기</button>
+            <button className="button-horiz">회원가입</button>
           </Link>
+          <div className="SizedBox"></div>
           <Link to="/h">
-            <button>비회원 로그인 페이지로 이동하기</button>
+            <button className="button-horiz">비회원 로그인</button>
           </Link>
         </div>
         <div className="map">

@@ -19,38 +19,37 @@
     opacity: 0.5;
 }
 
+.center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .overlay-button {
     position: absolute;
-    top: 460px;
-    left: 600px;
+    top: 520px;
+    left: 500px;
     z-index: 6;
     display: inline-flex;
 }
 
-.circle {
-    position: absolute;
-    background-color: red;
-    border-radius: 50%;
-    top: 470px;
-    left: 800px;
-    z-index: 5;
-}
-
-.line {
-    position: absolute;
-    background-color: red;
-    top: 420px;
-    left: 550px;
-    z-index: 3;
-    width: 600px;
-    height: 2px;
-}
-
-.button-style {
+.camera-button-style {
     width: 100px;
     height: 50px;
-    background-color: red;
-    border-radius: 20%;
+    border-radius: 10px;
+    background-color: rgb(251, 131, 131);
+    border: 2px solid rgb(251, 131, 131);
+    color: white;
+    font-size: 15px;
+}
+
+.custom-image-button-style {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 15px;
 }
 
 .SizedBox {

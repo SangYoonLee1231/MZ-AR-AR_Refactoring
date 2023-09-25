@@ -39,8 +39,8 @@ const Camera_User = () => {
             <html>
             <body>
                 <img src="${imageSrc}" alt="이미지">
-                <button id="backButton">다시 촬영하기</button>
-                <button id="goToNextButton">다음 단계로 이동</button>
+                <button className="button-style" id="backButton">다시 촬영하기</button>
+                <button className="button-style" id="goToNextButton">다음 단계로 이동</button>
             </body>
             </html>
         `);
@@ -111,8 +111,12 @@ const Camera_User = () => {
     };
 
     return (
-        <div className="camera-container">
-            <h1>AR 카메라 화면</h1>
+        <div className="camera-container center">
+            <div className="SizedBox"></div>
+            <a>AR 이미지를 자유롭게 활용하여 독특한 포즈를 취해주세요.</a>
+            <a>하단의 버튼을 눌러 크기와 각도를 조절하고 캡쳐하실 수 있습니다.</a>
+            <a>AR 이미지를 드래그하여 원하는 곳에 위치시킬 수도 있습니다.</a>
+            <div className="SizedBox"></div>
             <div className="camera-wrapper">
                 <Webcam
                     audio={false}
@@ -134,7 +138,7 @@ const Camera_User = () => {
                             />
                         ) : (
                             <img
-                                src="/images/images.png" //기본 이미지 경로는 여기서 설정
+                                src="/images/images-2.jpg" //기본 이미지 경로는 여기서 설정
                                 alt="My Image"
                                 className="overlay-image"
                                 style={{
@@ -144,8 +148,8 @@ const Camera_User = () => {
                         )}
                     </DraggableDiv>
                     <div className="overlay-button">
-                        <label className="button-style"> {/*얘는 왜 버튼 디자인이 다른지 모르겠음...*/}
-                            사진 선택
+                        <label className="camera-button-style"> {/*얘는 왜 버튼 디자인이 다른지 모르겠음...*/}
+                            <a className="custom-image-button-style">사진 선택</a>
                             {/* 이미지 업로드를 위한 파일 입력 요소 */}
                             <input
                                 type="file"
@@ -156,7 +160,7 @@ const Camera_User = () => {
                         </label>
                         <div className="SizedBox"></div>
                         <button
-                            className="move-button left button-style"
+                            className="move-button left camera-button-style"
                             onClick={() => moveCircle('left')}
                         >
                             이미지 축소
@@ -164,21 +168,21 @@ const Camera_User = () => {
                         <div className="SizedBox"></div>
 
                         <button
-                            className="move-button right button-style"
+                            className="move-button right camera-button-style"
                             onClick={() => moveCircle('right')}
                         >
                             이미지 확대
                         </button>
                         <div className="SizedBox"></div>
                         <button
-                            className="move-button left button-style"
+                            className="move-button left camera-button-style"
                             onClick={rotateLeft}
                         >
                             왼쪽 회전
                         </button>
                         <div className="SizedBox"></div>
                         <button
-                            className="move-button right button-style"
+                            className="move-button right camera-button-style"
                             onClick={rotateRight}
                         >
                             오른쪽 회전
@@ -186,7 +190,7 @@ const Camera_User = () => {
                     </div>
                 </div>
             </div>
-            <button onClick={capture} className="button-style">
+            <button onClick={capture} className="camera-button-style">
                 사진 찍기
             </button>
         </div>

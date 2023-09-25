@@ -20,11 +20,9 @@ const event = () => {
       </div>
       <div className="center">
         <div className="SizedBox"></div>
-        <h1>여기는 이벤트 페이지 !!</h1>
-        <div className="SizedBox"></div>
 
         <Link to="/m">
-          <button>B 사이트 연동하고 상품권 받으러 가기</button>
+          <button className="game-button">B 사이트 연동하고 상품권 받으러 가기</button>
         </Link>
 
         <div className="SizedBox"></div>

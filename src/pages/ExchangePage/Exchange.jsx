@@ -60,12 +60,12 @@ const Exchange = () => {
                 <div className="colored-div-style">
 
                     <div className="horiz-style">
-                        <a className="big-font">홍길동</a>
+                        <a className="big-font-for-exchange-page">홍길동</a>
                         <a className="middle-font">님의 현재 보유 포인트는</a>
                     </div>
 
                     <div className="horiz-style">
-                        <a className="big-font">7000</a>
+                        <a className="big-font-for-exchange-page">7000</a>
                         <a className="middle-font">포인트입니다.</a>
                     </div>
 
@@ -80,9 +80,9 @@ const Exchange = () => {
                 <div className="SizedBox"></div>
 
                 <div className="point-control">
-                    <button onClick={decreasePoints}>-</button>
+                    <button className="PlusMinusButton" onClick={decreasePoints}>-</button>
                     <span>{points} 포인트</span>
-                    <button onClick={increasePoints}>+</button>
+                    <button className="PlusMinusButton" onClick={increasePoints}>+</button>
                 </div>
 
                 <div className="SizedBox"></div>
@@ -91,7 +91,7 @@ const Exchange = () => {
                 <h1>보관함에서 상품권을 확인하실 수 있습니다.</h1>
                 <div className="SizedBox"></div>
 
-                <button onClick={exchangePoints}>
+                <button className="ExchangeOrKeepButton" onClick={exchangePoints}>
                     상품권으로 교환하기
                 </button>
 
@@ -104,7 +104,7 @@ const Exchange = () => {
                 <div className="SizedBox"></div>
 
                 <Link to="/n">
-                    <button>
+                    <button className="ExchangeOrKeepButton">
                         <a>내 보관함으로 이동하기</a>
                     </button>
                 </Link>

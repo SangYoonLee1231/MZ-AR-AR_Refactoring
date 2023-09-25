@@ -14,34 +14,12 @@
     flex-direction: row;
 }
 
-.bigButton-style {
-    width: 200px;
-    height: 500px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.horiz-bigButton-style {
-    width: 420px;
-    height: 170px;
-    margin-top: 20px;
-    border-radius: 30%;
-}
-
-.full-button {
-    width: 100%;
-    height: 100%;
-    border-radius: 10%;
-    background-color: rgb(251, 131, 131);
-    color: white;
-}
-
-.big-font {
+.big-font-for-exchange-page {
     font-size: 35px;
 }
 
 .middle-font {
-    font-size: 27px;
+    font-size: 20px;
 }
 
 .SizedBox {
@@ -57,4 +35,24 @@
     flex-direction: column;
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+.PlusMinusButton {
+    width: 25px;
+    height: 25px;
+    border-radius: 10px;
+    background-color: rgb(251, 131, 131);
+    border: 2px solid rgb(251, 131, 131);
+    color: white;
+    font-size: 15px;
+}
+
+.ExchangeOrKeepButton {
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(251, 131, 131);
+    border: 2px solid rgb(251, 131, 131);
+    color: white;
+    font-size: 15px;
 }

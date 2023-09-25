@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Nav from '../../components/Nav.jsx';
 import "./contest.scss";
-import LikeButton from '../LikeButton.jsx';
+import LikeButton from './LikeButton.jsx';
 
 const contest = () => {
     return (
@@ -24,6 +24,12 @@ const contest = () => {
                 <h1>기발하고 독특한 사진에게 좋아요를 눌러보세요.</h1>
                 <div className="SizedBox"></div>
 
+                <Link to="/d">
+                    <button className="button-style">
+                        <a>홈으로 돌아가기</a>
+                    </button>
+                </Link>
+
                 <div className="SizedBox"></div>
 
                 {
@@ -38,6 +44,7 @@ const contest = () => {
                                         />
                                         <a>작성자: 기니피그</a>
                                         <a>제목: 배고파</a>
+                                        <div className="SizedBox"></div>
                                         <LikeButton />
                                     </div>
                                 </div>
@@ -50,6 +57,7 @@ const contest = () => {
                                         />
                                         <a>작성자: 볼드모트</a>
                                         <a>제목: 해리야 해리야</a>
+                                        <div className="SizedBox"></div>
                                         <LikeButton />
                                     </div>
                                 </div>

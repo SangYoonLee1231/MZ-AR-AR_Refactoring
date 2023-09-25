@@ -33,7 +33,7 @@ const Camera = () => {
             <html>
             <body>
                 <img src="${imageSrc}" alt="이미지">
-                <button id="backButton">뒤로 가기</button>
+                <button id="backButton">다시 착용하기</button>
             
             </body>
             </html>
@@ -89,8 +89,12 @@ const Camera = () => {
     };
 
     return (
-        <div className="camera-container">
-            <h1>AR 카메라 화면</h1>
+        <div className="camera-container center">
+            <div className="SizedBox"></div>
+            <a>AR 이미지 아래에 착용하고자 하는 신체 부위를 위치하신 후 스타일을 확인하세요.</a>
+            <a>하단의 버튼을 눌러 크기와 각도를 조절하고 캡쳐하실 수 있습니다.</a>
+            <a>제품 이미지를 드래그하여 원하는 곳에 위치시킬 수도 있습니다.</a>
+            <div className="SizedBox"></div>
             <div className="camera-wrapper">
                 <Webcam
                     audio={false}
@@ -102,7 +106,7 @@ const Camera = () => {
 
                     <DraggableDiv>
                         <img
-                            src="/images/images.png"
+                            src="/images/images-2.jpg"
                             alt="My Image"
                             className="overlay-image"
                             style={{
@@ -114,29 +118,29 @@ const Camera = () => {
                     <div className="overlay-button">
 
                         <button
-                            className="move-button left button-style"
+                            className="move-button left camera-button-style"
                             onClick={() => moveCircle('left')}
                         >
-                            이미지 축소
+                            제품 축소
                         </button>
                         <div className="SizedBox"></div>
 
                         <button
-                            className="move-button right button-style"
+                            className="move-button right camera-button-style"
                             onClick={() => moveCircle('right')}
                         >
-                            이미지 확대
+                            제품 확대
                         </button>
                         <div className="SizedBox"></div>
                         <button
-                            className="move-button left button-style"
+                            className="move-button left camera-button-style"
                             onClick={rotateLeft}
                         >
                             왼쪽 회전
                         </button>
                         <div className="SizedBox"></div>
                         <button
-                            className="move-button right button-style"
+                            className="move-button right camera-button-style"
                             onClick={rotateRight}
                         >
                             오른쪽 회전
@@ -144,7 +148,8 @@ const Camera = () => {
                     </div>
                 </div>
             </div>
-            <button onClick={capture} className="button-style">사진 찍기</button>
+            <div className="SizedBox"></div>
+            <button onClick={capture} className="camera-button-style">사진 찍기</button>
         </div>
     );
 };

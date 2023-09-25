@@ -15,9 +15,9 @@ function LikeButton() {
     };
 
     return (
-        <div>
-            <p>좋아요 {count}</p>
-            <button onClick={handleClick} disabled={liked}>
+        <div className="center">
+            <p>좋아요 개수: {count}</p>
+            <button className="like-button-style" onClick={handleClick} disabled={liked}>
                 {liked ? '이미 좋아요를 누르셨습니다!' : 'LIKE'}
             </button>
         </div>

@@ -23,9 +23,9 @@ const A = () => {
         <div className="horiz-style">
           <div className="bigButton-style">
             <Link to="/j">
-              <button className="full-button">
+              <button className="full-button-vertical">
                 <div className="center">
-                  <div className="center">
+                  <div className="lefted-font">
                     <a className="big-font">AR로</a>
                     <a className="big-font">제품 착용하기</a>
                     <div className="SizedBox"></div>
@@ -38,8 +38,8 @@ const A = () => {
           </div>
           <div className="bigButton-style">
             <Link to="/c">
-              <button className="full-button">
-                <div className="center">
+              <button className="full-button-vertical">
+                <div className="lefted-font">
                   <a className="big-font">AR 트릭아트</a>
                   <a className="big-font">사진찍기</a>
                   <div className="SizedBox"></div>
@@ -52,8 +52,8 @@ const A = () => {
         </div>
         <div className="horiz-bigButton-style">
           <Link to="/i">
-            <button className="full-button">
-              <div className="center">
+            <button className="full-button-horiz">
+              <div className="lefted-font">
                 <a className="big-font">AR 트릭아트 사진 대전</a>
                 <div className="SizedBox"></div>
                 <a>사진을 공개하고 좋아요를 받아보세요.</a>
