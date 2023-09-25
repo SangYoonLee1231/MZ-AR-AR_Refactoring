@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, useNavigate } from 'react-router-dom';
 import './SignUp.scss';
+import Header from '../../components/header.jsx';
 
 function SignUp() {
     //아이디와 비밀번호를 각각의 상태로 관리하기 위해 두개의 useState를 생성한다
@@ -40,12 +41,7 @@ function SignUp() {
     return (
         <div className="vertical-center-lineUp">
 
-            <div>
-                <img
-                    src="/images/lottelogo.svg"
-                    alt="LotteLogo"
-                />
-            </div>
+            <Header />
             <div className="SizedBox_ver1"></div>
             <a>사용하실 아이디를 입력해주세요.</a>
             <input
@@ -65,9 +61,9 @@ function SignUp() {
                 placeholder="비밀번호를 입력하세요."
             />
             <div className="SizedBox_ver2"></div>
-            <button className="login-button-style" onClick={handleSignUp} disabled={isButtonDisabled}>
+            <button className="SignUp-button-style" onClick={handleSignUp} disabled={isButtonDisabled}>
 
-                <a style={{ color: 'red' }}>회원가입 완료!</a>
+                <a>회원가입 완료!</a>
 
             </button>
             <div className="SizedBox_ver2"></div>

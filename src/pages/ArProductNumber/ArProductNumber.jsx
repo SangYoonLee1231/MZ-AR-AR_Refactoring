@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, useNavigate } from 'react-router-dom';
+import Header from '../../components/header.jsx';
 
 import './ArProductNumber.scss';
 
@@ -32,14 +33,10 @@ function ArProductNumber() {
     return (
         <div className="vertical-center-lineUp">
 
-            <div>
-                <img
-                    src="/images/lottelogo.svg"
-                    alt="LotteLogo"
-                />
-            </div>
+            <Header />
             <div className="SizedBox_ver1"></div>
             <a>제품번호를 입력해주세요.</a>
+            <div className="SizedBox_ver2"></div>
             <input
                 type="text"
                 value={username}
@@ -47,10 +44,10 @@ function ArProductNumber() {
                 style={{ width: '300px', height: '40px' }}
                 placeholder="아이디를 입력하세요."
             />
+            <div className="SizedBox_ver2"></div>
+            <button className="ProductNumber-button-style" onClick={handleLogIn} disabled={isButtonDisabled}>
 
-            <button className="login-button-style" onClick={handleLogIn} disabled={isButtonDisabled}>
-
-                <a style={{ color: 'red' }}>완료</a>
+                <a>완료</a>
 
             </button>
             <div className="SizedBox_ver2"></div>

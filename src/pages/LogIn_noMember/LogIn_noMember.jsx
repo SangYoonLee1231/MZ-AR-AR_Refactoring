@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, useNavigate } from 'react-router-dom';
 import './LogIn_noMember.scss';
+import Header from '../../components/header.jsx';
 
 function LogIn_noMember() {
     //useState를 생성한다
@@ -35,12 +36,7 @@ function LogIn_noMember() {
     return (
         <div className="vertical-center-lineUp">
 
-            <div>
-                <img
-                    src="/images/lottelogo.svg"
-                    alt="LotteLogo"
-                />
-            </div>
+            <Header />
             <div className="SizedBox_ver1"></div>
             <a>본인의 전화번호를 입력해주세요.</a>
             <input
@@ -51,9 +47,9 @@ function LogIn_noMember() {
                 placeholder="전화번호를 입력하세요."
             />
             <div className="SizedBox_ver2"></div>
-            <button className="login-button-style" onClick={handleLogIn} disabled={isButtonDisabled}>
+            <button className="LogIn_noMemberPage-button-style" onClick={handleLogIn} disabled={isButtonDisabled}>
 
-                <a style={{ color: 'red' }}>로그인 완료!</a>
+                <a>로그인 완료!</a>
 
             </button>
             <div className="SizedBox_ver2"></div>

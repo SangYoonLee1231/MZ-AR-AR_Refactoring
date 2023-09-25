@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, useNavigate } from 'react-router-dom';
+import Header from '../../components/header.jsx';
 
 import './WriteTitle.scss';
 
@@ -32,12 +33,7 @@ function WriteTitle() {
     return (
         <div className="vertical-center-lineUp">
 
-            <div>
-                <img
-                    src="/images/lottelogo.svg"
-                    alt="LotteLogo"
-                />
-            </div>
+            <Header />
             <div className="SizedBox_ver1"></div>
             <a>사진의 제목을 입력해주세요.</a>
             <div className="SizedBox_ver2"></div>
@@ -49,11 +45,14 @@ function WriteTitle() {
                 placeholder="사진의 제목을 입력하세요."
             />
 
-            <button className="login-button-style" onClick={handleLogIn} disabled={isButtonDisabled}>
+            <div className="SizedBox_ver2"></div>
 
-                <a style={{ color: 'red' }}>완료</a>
+            <button className="title-button-style" onClick={handleLogIn} disabled={isButtonDisabled}>
+
+                <a>완료</a>
 
             </button>
+            <div className="SizedBox_ver2"></div>
             <a>사회의 미풍양속을 해치지 않는 제목을 입력해주세요.</a>
             <div className="SizedBox_ver2"></div>
             {showToast && <div className="toast">사진에 제목이 등록되었습니다!</div>}

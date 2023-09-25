@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes, Component } from 'react-router-dom';
 import './header.scss';
 
-const header = () => {
+const Header = () => {
     return (
         <div className="header-style">
             <img
@@ -19,4 +19,4 @@ const header = () => {
     );
 }
 
-export default header;
+export default Header;

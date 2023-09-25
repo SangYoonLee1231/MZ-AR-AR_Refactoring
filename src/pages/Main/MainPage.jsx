@@ -2,25 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes, Component } from 'react-router-dom';
 import './MainPage.scss';
 import Nav from '../../components/Nav.jsx';
-import header from '../../components/header.jsx';
+import Header from '../../components/header.jsx';
 import ImageSlider from './imageSlider.jsx';
 
 //화면 Main(메인화면) 컴포넌트를 만든다
 const Main = () => {
   return (
     <div>
-      <div className="header-style">
-        <img
-          src="/images/lottelogo.svg"
-          alt="LotteLogo"
-        />
-        <div className="bunddang">
-          <img
-            src="/images/bunddang.svg"
-            alt="bunddangAR"
-          />
-        </div>
-      </div>
+      <Header />
       <div className="banner">
         <div className="banner-font-style">
           <a className="fontColor">MZ</a>
@@ -54,6 +43,29 @@ const Main = () => {
         </div>
         <div className="map">
           <ImageSlider />
+        </div>
+        <div className="center">
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
+          <a>아무내용</a>
         </div>
       </div>
       <Nav />

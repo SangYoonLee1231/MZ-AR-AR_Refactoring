@@ -2,22 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Nav from '../../components/Nav.jsx';
 import "./EventPage.scss";
+import Header from '../../components/header.jsx';
 
 const event = () => {
   return (
     <div>
-      <div className="header-style">
-        <img
-          src="/images/lottelogo.svg"
-          alt="LotteLogo"
-        />
-        <div className="bunddang">
-          <img
-            src="/images/bunddang.svg"
-            alt="bunddangAR"
-          />
-        </div>
-      </div>
+      <Header />
       <div className="center">
         <div className="SizedBox"></div>
 

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, useNavigate } from 'react-router-dom';
+import Header from '../../components/header.jsx';
 
 import './KeepPage.scss';
 
@@ -11,12 +12,7 @@ function KeepPage() {
     return (
         <div className="vertical-center-lineUp">
 
-            <div>
-                <img
-                    src="/images/lottelogo.svg"
-                    alt="LotteLogo"
-                />
-            </div>
+            <Header />
             <div className="SizedBox_ver1"></div>
             <a>여기는 보관함 페이지</a>
             <div className="SizedBox_ver2"></div>

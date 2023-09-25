@@ -3,22 +3,12 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Nav from '../../components/Nav.jsx';
 import "./contest.scss";
 import LikeButton from './LikeButton.jsx';
+import Header from '../../components/header.jsx';
 
 const contest = () => {
     return (
         <div>
-            <div className="header-style">
-                <img
-                    src="/images/lottelogo.svg"
-                    alt="LotteLogo"
-                />
-                <div className="bunddang">
-                    <img
-                        src="/images/bunddang.svg"
-                        alt="bunddangAR"
-                    />
-                </div>
-            </div>
+            <Header />
             <div className="center">
                 <div className="SizedBox"></div>
                 <h1>기발하고 독특한 사진에게 좋아요를 눌러보세요.</h1>
