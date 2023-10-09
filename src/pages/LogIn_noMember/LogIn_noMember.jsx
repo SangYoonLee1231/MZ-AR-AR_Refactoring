@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, useNavigate } from 'react-router-dom';
 import './LogIn_noMember.scss';
 import Header from '../../components/header.jsx';
+import axios from 'axios';
 
 function LogIn_noMember() {
     //useState를 생성한다
@@ -12,6 +13,7 @@ function LogIn_noMember() {
     const [timeRemaining, setTimeRemaining] = useState(180); // 3분은 180초
     const minutes = Math.floor(timeRemaining / 60);
     const seconds = timeRemaining % 60;
+    const SERVER = process.env.REACT_APP_SERVER;
 
 
     //토스트 메시지를 띄우기 위한 설정~
@@ -34,6 +36,7 @@ function LogIn_noMember() {
     //전화번호가 입력되었을 때 로그인 버튼이 활성화되도록 만듦!
     const handleLogIn = () => {
         //특정 username 값이 입력되었을 때 /g 페이지로 이동
+        //나중에 이거 추가하기::  || (verifyUserResponse && verifyUserResponse.status === 404)
         if (username === '01045957817' || username === '01040694033') {
             history('/g');
         }
@@ -50,15 +53,38 @@ function LogIn_noMember() {
         else {
             alert('전화번호를 입력하려무나');
         }
+
     };
 
-    const verifyUser = () => {
+    const verifyUser = async () => {
         if (isClicked === 'True' && verify === '1102') {
             setShowToast_verify(true);
             setShowToast_verify_wrong(false);
             setValid('True');
-        }
-        else {
+
+            //post 요청의 데이터를 객체로 준비
+
+            try {
+                //axios를 사용한 post 요청
+                const response = await axios.post(`${SERVER}users/login`, null, {
+                    params: {
+                        phoneNumber: username
+                    }
+                });
+
+                console.log('api 응답값:', response.data); //axios는 response.data를 사용해 응답 데이터에 접근한다
+
+                if (response.status === 200) {
+                }
+                else {
+                    throw new Error('실패');
+                }
+                //verifyUserResponse = response;
+            } catch (error) {
+                console.error('에러코드:', error);
+                //verifyUserResponse = error.response;
+            }
+        } else {
             setShowToast_verify(false);
             setShowToast_verify_wrong(true);
             setValid('False');
@@ -90,7 +116,6 @@ function LogIn_noMember() {
         <div>
             <Header />
             <div className="vertical-center-lineUp">
-
                 <h1 href="#" style={{ textDecoration: 'none', fontSize: '30px', fontWeight: 'bold' }}>게스트 로그인</h1>
                 <div className="SizedBox_ver2"></div>
                 <a href="#" style={{ color: 'gray', textDecoration: 'none' }}>언제든지 L.POINT 계정에 연동이 가능합니다.</a>
