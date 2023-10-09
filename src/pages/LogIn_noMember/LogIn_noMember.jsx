@@ -87,78 +87,79 @@ function LogIn_noMember() {
     const isButtonDisabled = username === '' || verify === '' || isClicked === '' || isValid === '' || isValid === 'False';
 
     return (
-        <div className="vertical-center-lineUp">
-
+        <div>
             <Header />
-            <div className="SizedBox_ver2"></div>
-            <h1 href="#" style={{ textDecoration: 'none', fontSize: '30px', fontWeight: 'bold' }}>게스트 로그인</h1>
-            <div className="SizedBox_ver2"></div>
-            <a href="#" style={{ color: 'gray', textDecoration: 'none' }}>언제든지 L.POINT 계정에 연동이 가능합니다.</a>
-            <div className="SizedBox_ver1"></div>
+            <div className="vertical-center-lineUp">
 
-            <div className="columnDIV">
-                <div className="horizDIV">
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={LogIn_id}
-                        style={{ width: '300px', height: '40px' }}
-                        placeholder="핸드폰 번호"
-                        className="input"
-                    />
-                    <button className="verify-button" onClick={() => {
-                        setClicked('True');
-                        setShowToast_isSend('True');
-                        setTimeRemaining(180); // 3분으로 다시 설정
-                    }}>
-                        <a>인증요청</a>
-                    </button>
-                </div>
-                {showToast_isSend && (
-                    <div className="toast">
-                        {timeRemaining === 0 ? (
-                            <a>다시 인증을 요청해주세요.</a>
-                        ) : (
-                            <>
-                                <a>인증번호가 전송되었습니다!</a>
-                                <a href="#" style={{ color: 'blue', textDecoration: 'none' }}>
-                                    {' '}
-                                    {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-                                </a>
-                            </>
-                        )}
-                    </div>
-                )}
+                <h1 href="#" style={{ textDecoration: 'none', fontSize: '30px', fontWeight: 'bold' }}>게스트 로그인</h1>
                 <div className="SizedBox_ver2"></div>
-                <div className="horizDIV">
-                    <input
-                        type="text"
-                        value={verify}
-                        onChange={verifyNumber}
-                        style={{ width: '300px', height: '40px' }}
-                        placeholder="인증번호를 입력하세요."
-                        className="input"
-                    />
-                    <button className="verify-button" onClick={() => {
+                <a href="#" style={{ color: 'gray', textDecoration: 'none' }}>언제든지 L.POINT 계정에 연동이 가능합니다.</a>
+                <div className="SizedBox_ver1"></div>
 
-                        verifyUser();
-                    }}>
-                        <a>인증확인</a>
-                    </button>
+                <div className="columnDIV">
+                    <div className="horizDIV">
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={LogIn_id}
+                            style={{ width: '300px', height: '40px' }}
+                            placeholder="핸드폰 번호"
+                            className="input"
+                        />
+                        <button className="verify-button" onClick={() => {
+                            setClicked('True');
+                            setShowToast_isSend('True');
+                            setTimeRemaining(180); // 3분으로 다시 설정
+                        }}>
+                            <a>인증요청</a>
+                        </button>
+                    </div>
+                    {showToast_isSend && (
+                        <div className="toast">
+                            {timeRemaining === 0 ? (
+                                <a>다시 인증을 요청해주세요.</a>
+                            ) : (
+                                <>
+                                    <a>인증번호가 전송되었습니다!</a>
+                                    <a href="#" style={{ color: 'blue', textDecoration: 'none' }}>
+                                        {' '}
+                                        {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+                                    </a>
+                                </>
+                            )}
+                        </div>
+                    )}
+                    <div className="SizedBox_ver2"></div>
+                    <div className="horizDIV">
+                        <input
+                            type="text"
+                            value={verify}
+                            onChange={verifyNumber}
+                            style={{ width: '300px', height: '40px' }}
+                            placeholder="인증번호를 입력하세요."
+                            className="input"
+                        />
+                        <button className="verify-button" onClick={() => {
+
+                            verifyUser();
+                        }}>
+                            <a>인증확인</a>
+                        </button>
+                    </div>
+                    {showToast_verify && <div className="toast">인증되었습니다!</div>}
+                    {showToast_verify_wrong && <div className="toast">인증에 실패하였습니다!</div>}
                 </div>
-                {showToast_verify && <div className="toast">인증되었습니다!</div>}
-                {showToast_verify_wrong && <div className="toast">인증에 실패하였습니다!</div>}
+                <div className="SizedBox_ver2"></div>
+                <button
+                    className={`LogIn_noMemberPage-button-style ${isButtonDisabled ? 'disabled-button' : ''}`}
+                    onClick={handleLogIn}
+                    disabled={isButtonDisabled}
+                >
+                    <a>게스트 로그인</a>
+                </button>
+                <div className="SizedBox_ver2"></div>
+                {showToast && <div className="toast">비회원으로 로그인되었습니다!</div>}
             </div>
-            <div className="SizedBox_ver2"></div>
-            <button
-                className={`LogIn_noMemberPage-button-style ${isButtonDisabled ? 'disabled-button' : ''}`}
-                onClick={handleLogIn}
-                disabled={isButtonDisabled}
-            >
-                <a>게스트 로그인</a>
-            </button>
-            <div className="SizedBox_ver2"></div>
-            {showToast && <div className="toast">비회원으로 로그인되었습니다!</div>}
         </div>
     );
 }

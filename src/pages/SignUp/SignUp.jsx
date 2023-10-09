@@ -63,44 +63,45 @@ function LogIn_noMember() {
     const isButtonDisabled = username === '' || isValid === '' || isValid === 'False';
 
     return (
-        <div className="vertical-center-lineUp">
+        <div>
             <Header />
-            <div className="SizedBox_ver2"></div>
-            <h1 href="#" style={{ textDecoration: 'none', fontSize: '30px', fontWeight: 'bold' }}>닉네임을 입력해주세요</h1>
-            <div className="SizedBox_ver2"></div>
-            <a href="#" style={{ color: 'gray', textDecoration: 'none' }}>처음 오셨네요!</a>
-            <a href="#" style={{ color: 'gray', textDecoration: 'none' }}>환상의 AR 세계로 가는 마지막 단계에요!</a>
-            <div className="SizedBox_ver1"></div>
+            <div className="vertical-center-lineUp">
+                <h1 href="#" style={{ textDecoration: 'none', fontSize: '30px', fontWeight: 'bold' }}>닉네임을 입력해주세요</h1>
+                <div className="SizedBox_ver2"></div>
+                <a href="#" style={{ color: 'gray', textDecoration: 'none' }}>처음 오셨네요!</a>
+                <a href="#" style={{ color: 'gray', textDecoration: 'none' }}>환상의 AR 세계로 가는 마지막 단계에요!</a>
+                <div className="SizedBox_ver1"></div>
 
-            <input
-                type="text"
-                value={username}
-                onChange={LogIn_id}
-                style={{ width: '300px', height: '40px' }}
-                placeholder="닉네임 입력"
-                className="input"
-            />
-            <div className="SizedBox_ver2"></div>
-            <div className="horizDIV">
-                <button className="verify-button" onClick={() => {
-                    verifyUser();
-                }}>
-                    <a>중복 검사</a>
+                <input
+                    type="text"
+                    value={username}
+                    onChange={LogIn_id}
+                    style={{ width: '300px', height: '40px' }}
+                    placeholder="닉네임 입력"
+                    className="input"
+                />
+                <div className="SizedBox_ver2"></div>
+                <div className="horizDIV">
+                    <button className="verify-button" onClick={() => {
+                        verifyUser();
+                    }}>
+                        <a>중복 검사</a>
+                    </button>
+                    <div className="SizedBox_ver2"></div>
+                    {showToast_verify && <div className="toast">사용 가능한 닉네임입니다!</div>}
+                    {showToast_verify_wrong && <div className="toast">사용 불가능한 닉네임입니다!</div>}
+                </div>
+                <div className="SizedBox_ver2"></div>
+                <button
+                    className={`LogIn_noMemberPage-button-style ${isButtonDisabled ? 'disabled-button' : ''}`}
+                    onClick={handleLogIn}
+                    disabled={isButtonDisabled}
+                >
+                    <a>닉네임 확정</a>
                 </button>
                 <div className="SizedBox_ver2"></div>
-                {showToast_verify && <div className="toast">사용 가능한 닉네임입니다!</div>}
-                {showToast_verify_wrong && <div className="toast">사용 불가능한 닉네임입니다!</div>}
+                {showToast && <div className="toast">닉네임이 생성되었습니다!</div>}
             </div>
-            <div className="SizedBox_ver2"></div>
-            <button
-                className={`LogIn_noMemberPage-button-style ${isButtonDisabled ? 'disabled-button' : ''}`}
-                onClick={handleLogIn}
-                disabled={isButtonDisabled}
-            >
-                <a>닉네임 확정</a>
-            </button>
-            <div className="SizedBox_ver2"></div>
-            {showToast && <div className="toast">닉네임이 생성되었습니다!</div>}
         </div>
     );
 }
