@@ -10,7 +10,7 @@ const WillYouPost = () => {
       <Header />
       <div className="SizedBox"></div>
       <div className="body">
-        <div className="center">
+        <div className="will-you-post-center">
           <div className="text-area">
             <div className="SizedBox"></div>
             <h1>
