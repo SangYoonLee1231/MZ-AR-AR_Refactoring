@@ -11,6 +11,7 @@ function LogIn_noMember() {
 
     //토스트 메시지를 띄우기 위한 설정~
     const [showToast, setShowToast] = useState(false);
+    const [showToast_verify, setShowToast_verify] = useState(false);
     const history = useNavigate();
 
     //전화번호 업데이트
@@ -44,6 +45,12 @@ function LogIn_noMember() {
         }
     };
 
+    const verifyUser = () => {
+        if (verify === '1102' && isClicked === 'True') {
+            setShowToast_verify(true);
+        }
+    }
+
     const isButtonDisabled = username === '' || verify === '' || isClicked === '';
 
     return (
@@ -65,9 +72,14 @@ function LogIn_noMember() {
             />
             <div className="SizedBox_ver2"></div>
             <div className="horizDIV">
-                <button className="verify-button" onClick={() => { setClicked("True") }}>
+                <button className="verify-button" onClick={() => {
+                    setClicked('True');
+                    verifyUser();
+                }}>
                     <a>인증요청</a>
                 </button>
+                <div className="SizedBox_ver2"></div>
+                {showToast_verify && <div className="toast">인증되었습니다!</div>}
                 <div className="SizedBox_ver2"></div>
                 <input
                     type="text"

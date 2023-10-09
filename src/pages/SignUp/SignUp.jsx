@@ -8,9 +8,12 @@ function LogIn_noMember() {
     const [username, setUsername] = useState('');
     const [verify, setVerify] = useState('');
     let [isClicked, setClicked] = useState('');
+    let [isValid, setValid] = useState('');
 
     //토스트 메시지를 띄우기 위한 설정~
     const [showToast, setShowToast] = useState(false);
+    const [showToast_verify, setShowToast_verify] = useState(false);
+    const [showToast_verify_wrong, setShowToast_verify_wrong] = useState(false);
     const history = useNavigate();
 
     //전화번호 업데이트
@@ -18,14 +21,23 @@ function LogIn_noMember() {
         setUsername(e.target.value);
     };
 
-    const verifyNumber = (e) => {
-        setVerify(e.target.value);
+    const verifyUser = () => {
+        if (username !== '기니피그' && isClicked === 'True') {
+            setShowToast_verify(true);
+            setShowToast_verify_wrong(false);
+            setValid('True');
+        }
+        else {
+            setShowToast_verify(false);
+            setShowToast_verify_wrong(true);
+            setValid('False');
+        }
     }
 
 
     //전화번호가 입력되었을 때 로그인 버튼이 활성화되도록 만듦!
     const handleLogIn = () => {
-        if (username !== '' && isClicked === 'True') {
+        if (username !== '' && isClicked === 'True' && isValid === 'True') {
             setShowToast(true);
             setTimeout(() => {
                 setShowToast(false);
@@ -37,7 +49,7 @@ function LogIn_noMember() {
         }
     };
 
-    const isButtonDisabled = username === '' || isClicked === '';
+    const isButtonDisabled = username === '' || isClicked === '' || isValid === 'False';
 
     return (
         <div className="vertical-center-lineUp">
@@ -59,9 +71,15 @@ function LogIn_noMember() {
             />
             <div className="SizedBox_ver2"></div>
             <div className="horizDIV">
-                <button className="verify-button" onClick={() => { setClicked("True") }}>
+                <button className="verify-button" onClick={() => {
+                    setClicked('True');
+                    verifyUser();
+                }}>
                     <a>중복확인</a>
                 </button>
+                <div className="SizedBox_ver2"></div>
+                {showToast_verify && <div className="toast">사용 가능한 닉네임입니다!</div>}
+                {showToast_verify_wrong && <div className="toast">사용 불가능한 닉네임입니다!</div>}
 
             </div>
             <div className="SizedBox_ver2"></div>
