@@ -151,6 +151,7 @@ function LogIn() {
           <a>게스트 로그인</a>
         </button>
       </Link>
+      <div className="SizedBox_ver2"></div>
     </div>
   );
 }
