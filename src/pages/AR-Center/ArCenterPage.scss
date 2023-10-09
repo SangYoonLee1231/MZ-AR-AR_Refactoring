@@ -2,60 +2,120 @@
 // @import "./../../styles/mixin";
 // @import './../../styles/variables';
 
+a {
+  text-decoration: none;
+}
+
 .center {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .horiz-style {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 }
 
 .bigButton-style {
-    width: 200px;
-    height: 500px;
-    margin-left: 10px;
-    margin-right: 10px;
+  width: 200px;
+  height: 500px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .horiz-bigButton-style {
-    width: 420px;
-    height: 170px;
-    margin-top: 20px;
+  width: 420px;
+  height: 170px;
+  margin-top: 20px;
 }
 
 .full-button-vertical {
+  span {
+    font-size: xx-large;
+  }
+
+  &-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 200px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    border: 2px solid #1e1e1e;
+    color: white;
+
+    .lefted-font {
+      height: 200px;
+      margin: 20px 10px;
+      font-size: larger;
+    }
+  }
+
+  &-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
     width: 200px;
     height: 500px;
     border-radius: 10px;
     background-color: rgb(251, 131, 131);
     border: 2px solid rgb(251, 131, 131);
     color: white;
+
+    .righted-font {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-end;
+      height: 200px;
+      margin: 20px 10px;
+      text-decoration: none;
+      font-size: larger;
+    }
+  }
 }
 
 .full-button-horiz {
-    width: 420px;
-    height: 170px;
-    border-radius: 10px;
-    background-color: rgb(251, 131, 131);
-    border: 2px solid rgb(251, 131, 131);
-    color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 420px;
+  height: 170px;
+  padding: 20px 5px;
+  border-radius: 10px;
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+
+  span {
+    font-size: medium;
+  }
+
+  .lefted-font {
+    .big-font {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
 }
 
 .big-font {
-    font-size: 20px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .SizedBox {
-    height: 30px;
+  height: 30px;
 }
 
 .lefted-font {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    margin-left: 10px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  margin-left: 10px;
 }

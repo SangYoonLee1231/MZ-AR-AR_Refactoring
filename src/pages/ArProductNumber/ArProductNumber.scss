@@ -2,30 +2,47 @@
 // @import "./../../styles/mixin";
 // @import './../../styles/variables';
 
-
 .SizedBox_ver1 {
-    height: 100px;
+  height: 100px;
 }
 
 .SizedBox_ver2 {
-    height: 30px;
+  height: 50px;
 }
 
 .vertical-center-lineUp {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  height: 100vh;
 }
 
 .ProductNumber-button-style {
-    width: 130px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: rgb(251, 131, 131);
-    border: 2px solid rgb(251, 131, 131);
-    color: white;
-    font-size: 15px;
+  width: 50px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: rgb(251, 131, 131);
+  border: 2px solid rgb(251, 131, 131);
+  color: white;
+  font-size: 15px;
+}
+
+.input-box {
+  display: flex;
+
+  input {
+    margin-right: 20px;
+  }
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 1px solid rgb(251, 131, 131);
 }

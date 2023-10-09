@@ -2,39 +2,62 @@
 @import "./../../styles/mixin";
 // @import './../../styles/variables';
 
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .center {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid rgb(251, 131, 131);
+  width: 500px;
+
+  .bold {
+    color: rgb(251, 131, 131);
+    font-weight: 700;
+  }
+
+  .button-area {
+    button {
+      width: 150px;
+      height: 45px;
+      border-radius: 5px;
+      font-size: medium;
+      font-weight: 700;
+    }
+  }
 }
 
 .horiz-style {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 }
 
 .horiz-bigButton-style {
-    width: 420px;
-    height: 170px;
-    margin-top: 20px;
-    border-radius: 30%;
+  width: 420px;
+  height: 170px;
+  margin-top: 20px;
+  border-radius: 30%;
 }
 
 .button-style {
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: rgb(251, 131, 131);
-    border: 2px solid rgb(251, 131, 131);
-    color: white;
-    font-size: 15px;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(251, 131, 131);
+  border: 2px solid rgb(251, 131, 131);
+  color: white;
+  font-size: 15px;
 }
 
 .big-font {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .SizedBox {
-    height: 30px;
+  height: 30px;
 }
