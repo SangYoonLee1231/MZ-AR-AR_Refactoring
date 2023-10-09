@@ -1,60 +1,55 @@
-// @import "./../../styles/common";
-// @import "./../../styles/mixin";
-// @import './../../styles/variables';
-
-.camera-container {
-    position: relative;
+body {
+    background-color: black;
 }
 
-.camera {
-    width: 100%;
-    max-width: 640px;
-}
-
-.overlay-image {
-    position: absolute;
-    top: 200px;
-    left: 800px;
-    z-index: 2;
-    opacity: 0.5;
-}
-
-.center {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.overlay-button {
-    position: absolute;
-    top: 520px;
-    left: 600px;
-    z-index: 6;
-    display: inline-flex;
-}
-
-.camera-button-style {
-    width: 100px;
-    height: 50px;
+video {
+    margin: 40px auto 0 auto;
+    display: block;
+    border: 2px solid white;
     border-radius: 10px;
-    background-color: rgb(251, 131, 131);
-    border: 2px solid rgb(251, 131, 131);
-    color: white;
-    font-size: 15px;
 }
 
-.SizedBox {
-    width: 30px;
+canvas {
+    display: none;
 }
 
-.tilt-div {
-    transition: transform 0.5s ease;
+div {
+    margin-top: 20px;
+    text-align: center;
+}
 
-    &.left {
-        transform: skewX(-20deg);
-    }
+button {
+    background-color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    margin: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 
-    &.right {
-        transform: skewX(20deg);
+    &:hover {
+    background-color: #f2f2f2;
     }
+}
+
+input[type="range"] {
+    width: 50%;
+}
+
+// 캡처 버튼
+.capture-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
 }
