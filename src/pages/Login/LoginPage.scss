@@ -89,3 +89,13 @@
     color: black;
     font-size: 15px;
 }
+
+.input {
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.input:focus {
+    outline: none;
+    border-bottom: 1px solid rgb(251, 131, 131);
+}

@@ -6,8 +6,6 @@ import Header from '../../components/header.jsx';
 function LogIn_noMember() {
     //useState를 생성한다
     const [username, setUsername] = useState('');
-    const [verify, setVerify] = useState('');
-    let [isClicked, setClicked] = useState('');
     let [isValid, setValid] = useState('');
 
     //토스트 메시지를 띄우기 위한 설정~
@@ -16,16 +14,30 @@ function LogIn_noMember() {
     const [showToast_verify_wrong, setShowToast_verify_wrong] = useState(false);
     const history = useNavigate();
 
+    //username의 변화를 감시하여 isValid를 설정
+    useEffect(() => {
+        if (username === '') {
+            setValid('False');
+            setShowToast_verify(false);
+            setShowToast_verify_wrong(false);
+        }
+    }, [username]);
+
     //전화번호 업데이트
     const LogIn_id = (e) => {
         setUsername(e.target.value);
     };
 
     const verifyUser = () => {
-        if (username !== '기니피그' && isClicked === 'True') {
+        if (username !== '기니피그') {
             setShowToast_verify(true);
             setShowToast_verify_wrong(false);
             setValid('True');
+        }
+        else if (username === '') {
+            setShowToast_verify(false);
+            setShowToast_verify_wrong(false);
+            setValid('False');
         }
         else {
             setShowToast_verify(false);
@@ -34,26 +46,24 @@ function LogIn_noMember() {
         }
     }
 
-
     //전화번호가 입력되었을 때 로그인 버튼이 활성화되도록 만듦!
     const handleLogIn = () => {
-        if (username !== '' && isClicked === 'True' && isValid === 'True') {
+        if (username !== '' && isValid === 'True') {
             setShowToast(true);
             setTimeout(() => {
                 setShowToast(false);
                 //이전 화면으로 이동
                 history(-3);
-            }, 500); //0.8초 후 토스트 메시지를 숨기고 이동
+            }, 500); //0.5초 후 토스트 메시지를 숨기고 이동
         } else {
             alert('전화번호를 입력하려무나');
         }
     };
 
-    const isButtonDisabled = username === '' || isClicked === '' || isValid === 'False';
+    const isButtonDisabled = username === '' || isValid === '' || isValid === 'False';
 
     return (
         <div className="vertical-center-lineUp">
-
             <Header />
             <div className="SizedBox_ver2"></div>
             <h1 href="#" style={{ textDecoration: 'none', fontSize: '30px', fontWeight: 'bold' }}>닉네임을 입력해주세요</h1>
@@ -72,15 +82,13 @@ function LogIn_noMember() {
             <div className="SizedBox_ver2"></div>
             <div className="horizDIV">
                 <button className="verify-button" onClick={() => {
-                    setClicked('True');
                     verifyUser();
                 }}>
-                    <a>중복확인</a>
+                    <a>중복 검사</a>
                 </button>
                 <div className="SizedBox_ver2"></div>
                 {showToast_verify && <div className="toast">사용 가능한 닉네임입니다!</div>}
                 {showToast_verify_wrong && <div className="toast">사용 불가능한 닉네임입니다!</div>}
-
             </div>
             <div className="SizedBox_ver2"></div>
             <button

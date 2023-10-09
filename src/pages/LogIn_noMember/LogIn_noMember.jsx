@@ -8,10 +8,13 @@ function LogIn_noMember() {
     const [username, setUsername] = useState('');
     const [verify, setVerify] = useState('');
     let [isClicked, setClicked] = useState('');
+    let [isValid, setValid] = useState('');
+
 
     //토스트 메시지를 띄우기 위한 설정~
     const [showToast, setShowToast] = useState(false);
     const [showToast_verify, setShowToast_verify] = useState(false);
+    const [showToast_verify_wrong, setShowToast_verify_wrong] = useState(false);
     const history = useNavigate();
 
     //전화번호 업데이트
@@ -31,7 +34,7 @@ function LogIn_noMember() {
             history('/g');
         }
 
-        else if (username !== '' && verify !== '' && isClicked === 'True') {
+        else if (username !== '' && verify !== '' && isClicked === 'True' && isValid === 'True') {
             setShowToast(true);
             setTimeout(() => {
                 setShowToast(false);
@@ -46,12 +49,19 @@ function LogIn_noMember() {
     };
 
     const verifyUser = () => {
-        if (verify === '1102' && isClicked === 'True') {
+        if (isClicked === 'True' && verify === '1102') {
             setShowToast_verify(true);
+            setShowToast_verify_wrong(false);
+            setValid('True');
+        }
+        else {
+            setShowToast_verify(false);
+            setShowToast_verify_wrong(true);
+            setValid('False');
         }
     }
 
-    const isButtonDisabled = username === '' || verify === '' || isClicked === '';
+    const isButtonDisabled = username === '' || verify === '' || isClicked === '' || isValid === 'False';
 
     return (
         <div className="vertical-center-lineUp">
@@ -63,31 +73,41 @@ function LogIn_noMember() {
             <a href="#" style={{ color: 'gray', textDecoration: 'none' }}>언제든지 L.POINT 계정에 연동이 가능합니다.</a>
             <div className="SizedBox_ver1"></div>
 
-            <input
-                type="text"
-                value={username}
-                onChange={LogIn_id}
-                style={{ width: '300px', height: '40px' }}
-                placeholder="핸드폰 번호"
-            />
-            <div className="SizedBox_ver2"></div>
-            <div className="horizDIV">
-                <button className="verify-button" onClick={() => {
-                    setClicked('True');
-                    verifyUser();
-                }}>
-                    <a>인증요청</a>
-                </button>
+            <div className="columnDIV">
+                <div className="horizDIV">
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={LogIn_id}
+                        style={{ width: '300px', height: '40px' }}
+                        placeholder="핸드폰 번호"
+                    />
+                    <button className="verify-button" onClick={() => {
+                        setClicked('True');
+
+                    }}>
+                        <a>인증요청</a>
+                    </button>
+                </div>
+                <div className="SizedBox_ver2"></div>
+                <div className="horizDIV">
+                    <input
+                        type="text"
+                        value={verify}
+                        onChange={verifyNumber}
+                        style={{ width: '300px', height: '40px' }}
+                        placeholder="인증번호를 입력하세요."
+                    />
+                    <button className="verify-button" onClick={() => {
+
+                        verifyUser();
+                    }}>
+                        <a>인증확인</a>
+                    </button>
+                </div>
                 <div className="SizedBox_ver2"></div>
                 {showToast_verify && <div className="toast">인증되었습니다!</div>}
-                <div className="SizedBox_ver2"></div>
-                <input
-                    type="text"
-                    value={verify}
-                    onChange={verifyNumber}
-                    style={{ width: '300px', height: '40px' }}
-                    placeholder="인증번호를 입력하세요."
-                />
+                {showToast_verify_wrong && <div className="toast">인증에 실패하였습니다!</div>}
             </div>
             <div className="SizedBox_ver2"></div>
             <button
