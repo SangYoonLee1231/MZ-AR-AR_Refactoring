@@ -12,24 +12,53 @@
   flex-direction: column;
 }
 
+.event-page-phrase {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    font-size: x-large;
+    font-weight: 700;
+    padding: 10px;
+  }
+}
+
 .margin {
   margin-left: 20%;
 }
 
-.ad-style {
+.ad-this-style {
+  display: flex;
+  justify-content: space-between;
   width: 500px;
   height: 200px;
-  border-radius: 30;
-  border: 3px solid black;
+  padding: 20px;
+  border-radius: 30px;
+  border: 1px solid black;
   margin-bottom: 30px;
+
+  .event-name {
+    font-size: 20px;
+    font-weight: 700;
+  }
 }
 
 .game-button {
-  width: 300px;
+  width: 500px;
   height: 50px;
   border-radius: 10px;
-  background-color: rgb(251, 131, 131);
-  border: 2px solid rgb(251, 131, 131);
+  //   background-color: rgb(251, 131, 131);
+  //   border: 2px solid rgb(251, 131, 131);
+  background-color: white;
+  border: 1.5px solid black;
+  //   color: white;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.game-button:hover {
+  background-color: black;
   color: white;
-  font-size: 15px;
 }
