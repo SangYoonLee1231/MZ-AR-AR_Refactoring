@@ -5,11 +5,16 @@ import "./EventPage.scss";
 import Header from "../../components/header.jsx";
 
 const event = () => {
+  // [이미지, 이동할 링크 주소]
   const eventList = [
-    ["프라다 할인", "11.30"],
-    ["~~ 할인", "11.30"],
-    ["~~ 할인", "11.30"],
+    ["", ""],
+    ["", ""],
+    ["", ""],
   ];
+
+  const handleOnClick = (eventInfo) => {
+    window.open(eventInfo[1], "이벤트 페이지");
+  };
 
   return (
     <div>
@@ -34,9 +39,11 @@ const event = () => {
 
         {eventList.map((eventInfo) => {
           return (
-            <div className="ad-this-style">
-              <span className="event-name">{eventInfo[0]}</span>
-              <span>~{eventInfo[1]}</span>
+            <div
+              className="ad-this-style"
+              onClick={(eventInfo) => handleOnClick()}
+            >
+              <img src={eventInfo[0]} className="image-thumbnail" />
             </div>
           );
         })}
