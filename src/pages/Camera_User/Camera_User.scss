@@ -3,67 +3,67 @@
 // @import './../../styles/variables';
 
 .camera-container {
-    position: relative;
+  position: relative;
 }
 
 .camera {
-    width: 100%;
-    max-width: 640px;
+  width: 100%;
+  max-width: 640px;
 }
 
 .overlay-image {
-    position: absolute;
-    top: 200px;
-    left: 800px;
-    z-index: 2;
-    opacity: 0.5;
+  position: absolute;
+  top: 200px;
+  left: 800px;
+  z-index: 2;
+  opacity: 0.5;
 }
 
 .center {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .overlay-button {
-    position: absolute;
-    top: 520px;
-    left: 500px;
-    z-index: 6;
-    display: inline-flex;
+  position: absolute;
+  top: 520px;
+  left: 500px;
+  z-index: 6;
+  display: inline-flex;
 }
 
 .camera-button-style {
-    width: 100px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: rgb(251, 131, 131);
-    border: 2px solid rgb(251, 131, 131);
-    color: white;
-    font-size: 15px;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(251, 131, 131);
+  border: 2px solid rgb(251, 131, 131);
+  color: white;
+  font-size: 15px;
 }
 
 .custom-image-button-style {
-    width: 100px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 15px;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 15px;
 }
 
 .SizedBox {
-    width: 30px;
+  width: 30px;
 }
 
 .tilt-div {
-    transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
 
-    &.left {
-        transform: skewX(-20deg);
-    }
+  &.left {
+    transform: skewX(-20deg);
+  }
 
-    &.right {
-        transform: skewX(20deg);
-    }
+  &.right {
+    transform: skewX(20deg);
+  }
 }

@@ -15,15 +15,21 @@
   border: 2px solid rgb(251, 131, 131);
   width: 500px;
 
-  .bold {
-    color: rgb(251, 131, 131);
-    font-weight: 700;
+  .text-area {
+    .title {
+      font-size: x-large;
+    }
+
+    .bold {
+      color: #ff3d3d;
+      font-weight: 700;
+    }
   }
 
   .button-area {
     button {
-      width: 150px;
-      height: 45px;
+      width: 130px;
+      height: 40px;
       border-radius: 5px;
       font-size: medium;
       font-weight: 700;
@@ -45,11 +51,10 @@
 }
 
 .button-style {
-  width: 200px;
-  height: 50px;
+  margin: 0px 5px;
   border-radius: 10px;
-  background-color: rgb(251, 131, 131);
-  border: 2px solid rgb(251, 131, 131);
+  background-color: #ff3d3d;
+  border: 2px solid #ff3d3d;
   color: white;
   font-size: 15px;
 }
