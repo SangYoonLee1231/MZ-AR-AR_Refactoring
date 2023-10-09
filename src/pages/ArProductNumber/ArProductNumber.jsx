@@ -11,16 +11,61 @@ import Header from "../../components/header.jsx";
 import "./ArProductNumber.scss";
 
 function ArProductNumber() {
-  const [username, setUsername] = useState("");
+  // API 통신
+  const [imageURL, setImageURL] = useState(null);
+  const [productNum, setProductNum] = useState(0);
+
+  //   useEffect(() => {
+
+  //   })
+
+  const fetchData = () => {
+    const serverURL = process.env.REACT_APP_SERVER_URL;
+    // http://back.mzarar.kro.kr/api/products/9000;
+    // https://back.mzarar.kro.kr/api
+
+    fetch(`${serverURL}/products/${productNum}`)
+      .then((response) => {
+        if (response.ok) {
+          console.log(
+            "API 요청에 성공했습니다. 응답 상태 코드:",
+            response.status
+          );
+          return response.blob();
+        } else {
+          console.log(
+            "API 요청이 실패했습니다. 응답 상태 코드:",
+            response.status
+          );
+          throw new Error("Request failed");
+        }
+      })
+      .then((blobData) => {
+        console.log(blobData);
+        // Blob 데이터를 URL로 변환하여 이미지를 표시합니다.
+        const imageUrl = URL.createObjectURL(blobData);
+        setImageURL(imageUrl);
+      })
+      .catch((error) => {
+        console.error("API Error:", error);
+      });
+  };
 
   const [showToast, setShowToast] = useState(false);
   const history = useNavigate();
 
   const LogIn_id = (e) => {
-    setUsername(e.target.value);
+    setProductNum(e.target.value);
   };
   const handleLogIn = () => {
-    if (username !== "") {
+    if (productNum !== "") {
+      //
+      console.log(productNum);
+      fetchData();
+      localStorage.setItem("product-image-url", imageURL);
+      console.log(imageURL);
+
+      //
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
@@ -33,7 +78,7 @@ function ArProductNumber() {
   };
 
   //입력 시 버튼이 활성화되게 하기 위한 변수
-  const isButtonDisabled = username === "";
+  const isButtonDisabled = productNum === "";
 
   return (
     <div className="vertical-center-lineUp">
@@ -46,7 +91,7 @@ function ArProductNumber() {
       <div className="input-box">
         <input
           type="text"
-          value={username}
+          value={productNum}
           onChange={LogIn_id}
           style={{ width: "250px", height: "40px" }}
           placeholder="제품번호를 입력하세요"

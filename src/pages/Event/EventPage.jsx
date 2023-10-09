@@ -5,6 +5,30 @@ import "./EventPage.scss";
 import Header from "../../components/header.jsx";
 
 const event = () => {
+  //   fetch(`${SERVER}users/login?phoneNumber=${username}`, {
+  //     method: 'POST',
+  //     headers: {
+  //         'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //         username: username,
+  //         verify: verify,
+  //     }),
+  // })
+  //     .then((response) => {
+  //         if (response.ok) {
+  //             return response.json();
+  //         } else {
+  //             throw new Error('Request failed');
+  //         }
+  //     })
+  //     .then((data) => {
+  //         console.log('API Response:', data);
+  //     })
+  //     .catch((error) => {
+  //         console.error('API Error:', error);
+  //     });
+
   // [이미지, 이동할 링크 주소]
   const eventList = [
     ["", ""],
