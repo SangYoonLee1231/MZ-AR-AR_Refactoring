@@ -3,27 +3,28 @@ import { BrowserRouter as Router, Route, Link, Switch, useNavigate } from 'react
 import './SignUp.scss';
 import Header from '../../components/header.jsx';
 
-function SignUp() {
-    //아이디와 비밀번호를 각각의 상태로 관리하기 위해 두개의 useState를 생성한다
+function LogIn_noMember() {
+    //useState를 생성한다
     const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [verify, setVerify] = useState('');
+
     //토스트 메시지를 띄우기 위한 설정~
     const [showToast, setShowToast] = useState(false);
     const history = useNavigate();
 
-    //아이디 업데이트
-    const SignUp_id = (e) => {
+    //전화번호 업데이트
+    const LogIn_id = (e) => {
         setUsername(e.target.value);
     };
 
-    //비밀번호 업데이트
-    const SignUp_pw = (e) => {
-        setPassword(e.target.value);
-    };
+    const verifyNumber = (e) => {
+        setVerify(e.target.value);
+    }
 
-    //아이디와 비밀번호가 모두 입력되었을 때 회원가입 버튼이 활성화되도록 만듦!
-    const handleSignUp = () => {
-        if (username !== '' && password !== '') {
+
+    //전화번호가 입력되었을 때 로그인 버튼이 활성화되도록 만듦!
+    const handleLogIn = () => {
+        if (username !== '' && verify !== '') {
             setShowToast(true);
             setTimeout(() => {
                 setShowToast(false);
@@ -31,45 +32,49 @@ function SignUp() {
                 history(-1);
             }, 500); //0.8초 후 토스트 메시지를 숨기고 이동
         } else {
-            alert('아이디와 비밀번호를 모두 입력하려무나');
+            alert('전화번호를 입력하려무나');
         }
     };
 
-    //아이디와 비밀번호가 모두 입력 시 버튼이 활성화되게 하기 위한 변수
-    const isButtonDisabled = username === '' || password === '';
+    const isButtonDisabled = username === '' || verify === '';
 
     return (
         <div className="vertical-center-lineUp">
 
             <Header />
+            <div className="SizedBox_ver2"></div>
+            <h1 href="#" style={{ textDecoration: 'none', fontSize: '30px', fontWeight: 'bold' }}>닉네임을 입력해주세요</h1>
+            <div className="SizedBox_ver2"></div>
+            <a href="#" style={{ color: 'gray', textDecoration: 'none' }}>처음 오셨네요!</a>
+            <a href="#" style={{ color: 'gray', textDecoration: 'none' }}>환상의 AR 세계로 가는 마지막 단계에요!</a>
             <div className="SizedBox_ver1"></div>
-            <a>사용하실 아이디를 입력해주세요.</a>
+
             <input
                 type="text"
                 value={username}
-                onChange={SignUp_id}
+                onChange={LogIn_id}
                 style={{ width: '300px', height: '40px' }}
-                placeholder="아이디를 입력하세요."
+                placeholder="닉네임 입력"
             />
             <div className="SizedBox_ver2"></div>
-            <a>사용하실 비밀번호를 입력해주세요.</a>
-            <input
-                type="password"
-                value={password}
-                onChange={SignUp_pw}
-                style={{ width: '300px', height: '40px' }}
-                placeholder="비밀번호를 입력하세요."
-            />
+            <div className="horizDIV">
+                <button className="verify-button">
+                    <a>중복확인</a>
+                </button>
+
+            </div>
             <div className="SizedBox_ver2"></div>
-            <button className="SignUp-button-style" onClick={handleSignUp} disabled={isButtonDisabled}>
-
-                <a>회원가입 완료!</a>
-
+            <button
+                className={`LogIn_noMemberPage-button-style ${isButtonDisabled ? 'disabled-button' : ''}`}
+                onClick={handleLogIn}
+                disabled={isButtonDisabled}
+            >
+                <a>닉네임 확정</a>
             </button>
             <div className="SizedBox_ver2"></div>
-            {showToast && <div className="toast">회원가입되었습니다!</div>}
+            {showToast && <div className="toast">닉네임이 생성되었습니다!</div>}
         </div>
     );
 }
 
-export default SignUp;
+export default LogIn_noMember;

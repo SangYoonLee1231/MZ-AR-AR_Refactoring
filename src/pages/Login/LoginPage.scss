@@ -8,24 +8,84 @@
 }
 
 .SizedBox_ver2 {
+    width: 30px;
     height: 30px;
 }
 
 .vertical-center-lineUp {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 100vh;
 }
 
 .LoginPage-button-style {
-    width: 130px;
+    width: 200px;
     height: 30px;
     border-radius: 10px;
-    background-color: rgb(251, 131, 131);
-    border: 2px solid rgb(251, 131, 131);
+    background-color: rgb(225, 47, 54);
+    border: 2px solid rgb(225, 47, 54);
     color: white;
+    font-size: 15px;
+}
+
+.LpointDIV {
+    width: 100%;
+    height: 70px;
+    background-color: rgb(43, 114, 201);
+    border: 2px solid rgb(43, 114, 201);
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noticeDIV {
+    width: 100%;
+    height: 70px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.columnDIV {
+    display: flex;
+    flex-direction: column;
+}
+
+.rowDIV {
+    display: flex;
+    flex-direction: row;
+}
+
+.strokeDIV {
+    width: 200px;
+    height: 3px;
+    background-color: rgb(217, 217, 217);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LotteOnLogin {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: white;
+    border: 2px solid rgb(225, 47, 54);
+    color: rgb(225, 47, 54);
+    font-size: 15px;
+}
+
+.GuestLogin {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: white;
+    border: 2px solid rgb(197, 197, 197);
+    color: black;
     font-size: 15px;
 }
