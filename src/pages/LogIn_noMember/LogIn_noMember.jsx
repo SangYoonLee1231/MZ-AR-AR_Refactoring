@@ -9,12 +9,16 @@ function LogIn_noMember() {
     const [verify, setVerify] = useState('');
     let [isClicked, setClicked] = useState('');
     let [isValid, setValid] = useState('');
+    const [timeRemaining, setTimeRemaining] = useState(180); // 3분은 180초
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
 
 
     //토스트 메시지를 띄우기 위한 설정~
     const [showToast, setShowToast] = useState(false);
     const [showToast_verify, setShowToast_verify] = useState(false);
     const [showToast_verify_wrong, setShowToast_verify_wrong] = useState(false);
+    const [showToast_isSend, setShowToast_isSend] = useState(false);
     const history = useNavigate();
 
     //전화번호 업데이트
@@ -61,7 +65,26 @@ function LogIn_noMember() {
         }
     }
 
-    const isButtonDisabled = username === '' || verify === '' || isClicked === '' || isValid === 'False';
+    useEffect(() => {
+        if (verify === '') {
+            setValid('False');
+            setShowToast_verify(false);
+            setShowToast_verify_wrong(false);
+        }
+    }, [verify]);
+
+    useEffect(() => {
+        if (timeRemaining > 0) {
+            const timer = setTimeout(() => {
+                setTimeRemaining(timeRemaining - 1);
+            }, 1000); //1초마다 타이머를 갱신
+
+            return () => clearTimeout(timer);
+        }
+    }, [timeRemaining]);
+
+
+    const isButtonDisabled = username === '' || verify === '' || isClicked === '' || isValid === '' || isValid === 'False';
 
     return (
         <div className="vertical-center-lineUp">
@@ -81,14 +104,31 @@ function LogIn_noMember() {
                         onChange={LogIn_id}
                         style={{ width: '300px', height: '40px' }}
                         placeholder="핸드폰 번호"
+                        className="input"
                     />
                     <button className="verify-button" onClick={() => {
                         setClicked('True');
-
+                        setShowToast_isSend('True');
+                        setTimeRemaining(180); // 3분으로 다시 설정
                     }}>
                         <a>인증요청</a>
                     </button>
                 </div>
+                {showToast_isSend && (
+                    <div className="toast">
+                        {timeRemaining === 0 ? (
+                            <a>다시 인증을 요청해주세요.</a>
+                        ) : (
+                            <>
+                                <a>인증번호가 전송되었습니다!</a>
+                                <a href="#" style={{ color: 'blue', textDecoration: 'none' }}>
+                                    {' '}
+                                    {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+                                </a>
+                            </>
+                        )}
+                    </div>
+                )}
                 <div className="SizedBox_ver2"></div>
                 <div className="horizDIV">
                     <input
@@ -97,6 +137,7 @@ function LogIn_noMember() {
                         onChange={verifyNumber}
                         style={{ width: '300px', height: '40px' }}
                         placeholder="인증번호를 입력하세요."
+                        className="input"
                     />
                     <button className="verify-button" onClick={() => {
 
@@ -105,7 +146,6 @@ function LogIn_noMember() {
                         <a>인증확인</a>
                     </button>
                 </div>
-                <div className="SizedBox_ver2"></div>
                 {showToast_verify && <div className="toast">인증되었습니다!</div>}
                 {showToast_verify_wrong && <div className="toast">인증에 실패하였습니다!</div>}
             </div>

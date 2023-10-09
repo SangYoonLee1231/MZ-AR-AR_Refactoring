@@ -80,6 +80,11 @@
     font-size: 15px;
 }
 
+.disabled-button {
+    background-color: rgb(130, 36, 39) !important;
+    border: 2px solid rgb(130, 36, 39) !important;
+}
+
 .GuestLogin {
     width: 200px;
     height: 30px;

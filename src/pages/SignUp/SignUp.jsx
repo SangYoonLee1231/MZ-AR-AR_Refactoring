@@ -78,6 +78,7 @@ function LogIn_noMember() {
                 onChange={LogIn_id}
                 style={{ width: '300px', height: '40px' }}
                 placeholder="닉네임 입력"
+                className="input"
             />
             <div className="SizedBox_ver2"></div>
             <div className="horizDIV">

@@ -25,7 +25,6 @@ function LogIn() {
     alert('현재 지원되지 않는 서비스입니다. 게스트 로그인으로 시도하세요.');
   }
 
-  //아이디와 비밀번호가 모두 입력되었을 때 로그인 버튼이 활성화되도록 만듦!
   const handleLogIn = () => {
     if (username !== '' && password !== '') {
       setShowToast(true);
@@ -33,11 +32,12 @@ function LogIn() {
         setShowToast(false);
         //이전 화면으로 이동
         history(-1);
-      }, 500); //0.8초 후 토스트 메시지를 숨기고 이동
+      }, 500); //0.5초 후 이동
     } else {
-      alert('아이디와 비밀번호를 모두 입력하려무나');
+      alert('아이디와 비밀번호를 모두 입력해주세요.');
     }
   };
+
 
   //아이디와 비밀번호가 모두 입력 시 버튼이 활성화되게 하기 위한 변수
   const isButtonDisabled = username === '' || password === '';
@@ -77,6 +77,7 @@ function LogIn() {
             paddingLeft: '40px'
           }}
           placeholder="아이디를 입력하세요."
+          className="input"
         />
         <div className="SizedBox_ver2"></div>
         <img
@@ -104,6 +105,7 @@ function LogIn() {
             paddingLeft: '40px'
           }}
           placeholder="비밀번호를 입력하세요."
+          className="input"
         />
         <div className="SizedBox_ver2"></div>
         <img
@@ -113,13 +115,15 @@ function LogIn() {
         />
       </div>
       <div className="SizedBox_ver2"></div>
-      <button className="LoginPage-button-style " onClick={handleLogIn} disabled={isButtonDisabled}>
+      <button className={`LoginPage-button-style  ${isButtonDisabled ? 'disabled-button' : ''}`}
+        onClick={handleLogIn} disabled={isButtonDisabled}>
 
         <a>로그인</a>
 
       </button>
       <div className="SizedBox_ver2"></div>
       {showToast && <div className="toast">로그인되었습니다.</div>}
+      <div className="SizedBox_ver2"></div>
 
       <div className="rowDIV">
         <div className="strokeDIV"></div>
