@@ -1,24 +1,26 @@
-body {
+.camera-body {
     background-color: black;
+    width: 100%;
+    height: 100vh;
 }
 
-video {
+.camera-video {
     margin: 40px auto 0 auto;
     display: block;
     border: 2px solid white;
     border-radius: 10px;
 }
 
-canvas {
+.camera-canvas {
     display: none;
 }
 
-div {
+.camera-div {
     margin-top: 20px;
     text-align: center;
 }
 
-button {
+.camera-button {
     background-color: white;
     border: none;
     border-radius: 12px;
@@ -29,16 +31,16 @@ button {
     transition: background-color 0.3s ease;
 
     &:hover {
-    background-color: #f2f2f2;
+        background-color: #f2f2f2;
     }
 }
 
-input[type="range"] {
+.camera-input[type="range"] {
     width: 50%;
 }
 
 // 캡처 버튼
-.capture-button {
+.camera-capture-button {
     position: fixed;
     bottom: 20px;
     left: 50%;

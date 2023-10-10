@@ -131,10 +131,11 @@ function Camera() {
     };
 
     return (
-        <>
-        <video ref={videoRef} width={windowWidth} height={Math.floor(windowWidth * (3 / 4))} autoPlay></video>
-        <canvas ref={canvasRef} width={windowWidth} height={Math.floor(windowWidth * (3 / 4))} style={{ display: 'none' }}></canvas>
+      <div className="camera-body">
+        <video ref={videoRef} className="camera-video" width={windowWidth} height={Math.floor(windowWidth * (3 / 4))} autoPlay></video>
+        <canvas ref={canvasRef} className="camera-canvas" width={windowWidth} height={Math.floor(windowWidth * (3 / 4))} style={{ display: 'none' }}></canvas>
         <div
+            className="camera-div"
             onMouseDown={handleMouseDown}
             onTouchStart={handleMouseDown}
             style={{
@@ -147,16 +148,17 @@ function Camera() {
         >
             <img src="/images/images-2.jpg" width={`${imgSize}%`} />
         </div>
-        <div>
-            <button onClick={() => setRotation(rotation + 15)}>시계 회전</button>
-            <button onClick={() => setRotation(rotation - 15)}>반시계 회전</button>
+        <div className="camera-div">
+            <button className="camera-button" onClick={() => setRotation(rotation + 15)}>시계 회전</button>
+            <button className="camera-button" onClick={() => setRotation(rotation - 15)}>반시계 회전</button>
         </div>
-        <div>
-            <input type="range" min="70" max="100" value={imgSize} onChange={handleImageSizeChange} />
+        <div className="camera-div">
+            <input className="camera-input" type="range" min="70" max="100" value={imgSize} onChange={handleImageSizeChange} />
         </div>
-        <button className="capture-button" onClick={capture}>캡처</button>
-        </>
+        <button className="camera-capture-button" onClick={capture}>캡처</button>
+      </div>
     );
+  
 }
 
 export default Camera;
