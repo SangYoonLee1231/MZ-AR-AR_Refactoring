@@ -3,33 +3,64 @@
 // @import './../../styles/variables';
 
 .SizedBox {
-    height: 50px;
+  height: 50px;
 }
 
 .center {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.event-page-phrase {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .margin {
-    margin-left: 20%;
+  margin-left: 20%;
 }
 
-.ad-style {
-    width: 400px;
-    height: 300px;
-    border-radius: 30;
-    border: 2px solid red;
-    margin-bottom: 30px;
+.ad-this-style {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  height: 200px;
+  padding: 20px;
+  border-radius: 30px;
+  border: 1px solid black;
+  margin-bottom: 30px;
+
+  .event-name {
+    font-size: 20px;
+    font-weight: 700;
+  }
 }
 
 .game-button {
-    width: 300px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: rgb(251, 131, 131);
-    border: 2px solid rgb(251, 131, 131);
-    color: white;
-    font-size: 15px;
+  width: 500px;
+  height: 50px;
+  border-radius: 10px;
+  //   background-color: rgb(251, 131, 131);
+  //   border: 2px solid rgb(251, 131, 131);
+  background-color: white;
+  border: 1.5px solid black;
+  //   color: white;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.game-button:hover {
+  background-color: black;
+  color: white;
 }

@@ -2,39 +2,67 @@
 @import "./../../styles/mixin";
 // @import './../../styles/variables';
 
-.center {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.will-you-post-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid rgb(251, 131, 131);
+  width: 500px;
+
+  .text-area {
+    .title {
+      font-size: x-large;
+    }
+
+    .bold {
+      color: #ff3d3d;
+      font-weight: 700;
+    }
+  }
+
+  .button-area {
+    button {
+      width: 130px;
+      height: 40px;
+      border-radius: 5px;
+      font-size: medium;
+      font-weight: 700;
+    }
+  }
 }
 
 .horiz-style {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 }
 
 .horiz-bigButton-style {
-    width: 420px;
-    height: 170px;
-    margin-top: 20px;
-    border-radius: 30%;
+  width: 420px;
+  height: 170px;
+  margin-top: 20px;
+  border-radius: 30%;
 }
 
 .button-style {
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: rgb(251, 131, 131);
-    border: 2px solid rgb(251, 131, 131);
-    color: white;
-    font-size: 15px;
+  margin: 0px 5px;
+  border-radius: 10px;
+  background-color: #ff3d3d;
+  border: 2px solid #ff3d3d;
+  color: white;
+  font-size: 15px;
 }
 
 .big-font {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .SizedBox {
-    height: 30px;
+  height: 30px;
 }
