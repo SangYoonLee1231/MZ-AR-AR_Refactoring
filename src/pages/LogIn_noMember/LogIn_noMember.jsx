@@ -14,6 +14,7 @@ function LogIn_noMember() {
     const minutes = Math.floor(timeRemaining / 60);
     const seconds = timeRemaining % 60;
     const SERVER = process.env.REACT_APP_SERVER;
+    let verifyUserResponse = null; // 응답을 저장할 변수 선언
 
 
     //토스트 메시지를 띄우기 위한 설정~
@@ -36,7 +37,7 @@ function LogIn_noMember() {
     //전화번호가 입력되었을 때 로그인 버튼이 활성화되도록 만듦!
     const handleLogIn = () => {
         //특정 username 값이 입력되었을 때 /g 페이지로 이동
-        //나중에 이거 추가하기::  || (verifyUserResponse && verifyUserResponse.status === 404)
+
         if (username === '01045957817' || username === '01040694033') {
             history('/g');
         }
@@ -45,9 +46,13 @@ function LogIn_noMember() {
             setShowToast(true);
             setTimeout(() => {
                 setShowToast(false);
-                //메인 화면으로 이동
-                history(-2);
-            }, 500); //0.8초 후 토스트 메시지를 숨기고 이동
+                // 여기서 추가: verifyUserResponse가 404인 경우 /g로 이동
+                if (verifyUserResponse === null) {
+                    history('/g');
+                } else {
+                    history(-2); // 메인 화면으로 이동
+                }
+            }, 500);
         }
 
         else {
@@ -73,16 +78,15 @@ function LogIn_noMember() {
                 });
 
                 console.log('api 응답값:', response.data); //axios는 response.data를 사용해 응답 데이터에 접근한다
+                verifyUserResponse = response; // 응답을 변수에 저장
 
-                if (response.status === 200) {
+                // 여기서 추가: 응답이 404인 경우 예외 처리
+                if (response.status === 404) {
+                    verifyUserResponse = null; // 응답을 null로 설정
                 }
-                else {
-                    throw new Error('실패');
-                }
-                //verifyUserResponse = response;
             } catch (error) {
                 console.error('에러코드:', error);
-                //verifyUserResponse = error.response;
+                verifyUserResponse = error.response; // 에러 응답을 변수에 저장
             }
         } else {
             setShowToast_verify(false);
