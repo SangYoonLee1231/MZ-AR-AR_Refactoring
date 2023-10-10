@@ -12,6 +12,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    gap: 1rem;
 }
 
 body {
@@ -30,7 +31,7 @@ body {
 }
 
 .verify-button {
-    width: 100px;
+    width: 150px;
     height: 30px;
     border-radius: 10px;
     background-color: white;
@@ -52,4 +53,14 @@ body {
 .rowDIV {
     display: flex;
     flex-direction: row;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.input:focus {
+    outline: none;
+    border-bottom: 1px solid rgb(251, 131, 131);
 }

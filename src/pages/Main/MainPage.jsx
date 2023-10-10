@@ -33,13 +33,7 @@ const Main = () => {
             <button className="button-horiz">로그인</button>
           </Link>
           <div className="SizedBox"></div>
-          <Link to="/g">
-            <button className="button-horiz">회원가입</button>
-          </Link>
-          <div className="SizedBox"></div>
-          <Link to="/h">
-            <button className="button-horiz">비회원 로그인</button>
-          </Link>
+
         </div>
         <div className="map">
           <ImageSlider />

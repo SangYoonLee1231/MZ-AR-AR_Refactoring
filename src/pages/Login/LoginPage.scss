@@ -15,10 +15,13 @@
 .vertical-center-lineUp {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
+    gap: 1rem;
 }
+
+
 
 .LoginPage-button-style {
     width: 200px;
@@ -80,6 +83,11 @@
     font-size: 15px;
 }
 
+.disabled-button {
+    background-color: rgb(130, 36, 39) !important;
+    border: 2px solid rgb(130, 36, 39) !important;
+}
+
 .GuestLogin {
     width: 200px;
     height: 30px;
@@ -88,4 +96,14 @@
     border: 2px solid rgb(197, 197, 197);
     color: black;
     font-size: 15px;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.input:focus {
+    outline: none;
+    border-bottom: 1px solid rgb(251, 131, 131);
 }
