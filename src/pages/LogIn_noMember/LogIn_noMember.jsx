@@ -56,6 +56,8 @@ function LogIn_noMember() {
         }
     };
 
+    //비동기 함수를 잘 써야한다. 함수의 응답을 기다려서 값을 받고, 비교하고, 이동해야 한다.
+    //안그러면 초기값이랑 비교해서 페이지 이동 이상하게 됨
     const verifyUser = async () => {
         if (isClicked === 'True' && verify === '1102') {
             setShowToast_verify(true);
@@ -77,13 +79,13 @@ function LogIn_noMember() {
                     const { phoneNumber, nickname } = response.data;
                     console.log('phoneNumber:', phoneNumber);
                     console.log('nickname:', nickname);
-                    // 비동기 처리가 완료된 후에 history 함수를 호출
-                    history(-2); // 페이지 이동
+                    //비동기 처리가 완료된 후에 history 함수를 호출
+                    history(-2); //페이지 이동
                 }
             } catch (error) {
                 console.error('에러코드:', error);
-                // 비동기 처리가 완료된 후에 history 함수를 호출
-                history('/g'); // 페이지 이동
+                //비동기 처리가 완료된 후에 history 함수를 호출
+                history('/g'); //페이지 이동
             }
         } else {
             setShowToast_verify(false);
