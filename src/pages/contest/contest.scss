@@ -16,6 +16,11 @@
 .photo-list {
   display: grid;
   grid-template-columns: 500px 500px;
+
+  span {
+    padding-top: 10px;
+    font-size: larger;
+  }
 }
 
 .horiz-center {
@@ -31,15 +36,16 @@
 
 .ad-style {
   width: 400px;
-  height: 300px;
-  border-radius: 30;
-  border: 2px solid red;
+  height: 330px;
+  border-radius: 30px;
+  //   border: 2px solid red;
+  background-color: #ededed;
   margin-bottom: 30px;
 
   img {
     width: 340px;
     height: 170px;
-    border-radius: 30;
+    border-radius: 15px;
     border: 2px solid red;
     margin-top: 10px;
     margin-left: 10px;

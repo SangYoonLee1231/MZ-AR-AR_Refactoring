@@ -55,8 +55,8 @@ const Contest = () => {
                       src={`data:image/png;base64,${post.image}`}
                       alt={post.title}
                     />
-                    <a>작성자: {post.authorNickname}</a>
-                    <a>제목: {post.title}</a>
+                    <span>작성자: {post.authorNickname}</span>
+                    <span>제목: {post.title}</span>
                     <div className="SizedBox"></div>
                     <LikeButton />
                   </div>
