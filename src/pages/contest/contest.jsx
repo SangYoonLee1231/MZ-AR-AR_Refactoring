@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'; // useState와 useEffect 추가
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Nav from '../../components/Nav.jsx';
 import "./contest.scss";
 import LikeButton from './LikeButton.jsx';
 import Header from '../../components/header.jsx';
+import axios from 'axios'; // axios 추가
 
-const contest = () => {
+const Contest = () => {
+    const [posts, setPosts] = useState([]); // posts를 저장할 state
+    const serverAddress = process.env.REACT_APP_SERVER; // .env에서 서버 주소 가져오기
+
+    // 컴포넌트가 마운트되면 실행
+    useEffect(() => {
+        // API 요청 함수
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`${serverAddress}posts`);
+                setPosts(response.data); // API 응답을 state에 저장
+            } catch (error) {
+                console.error('An error occurred while fetching data:', error);
+            }
+        };
+
+        fetchData(); // 함수 실행
+    }, []);
+
     return (
         <div>
             <Header />
@@ -23,35 +42,27 @@ const contest = () => {
                 <div className="SizedBox"></div>
 
                 {
-                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(() => {
+                    posts.map((post) => {
+                        // Blob 생성 및 URL 설정
+                        const blob = new Blob([post.image], { type: 'image/png' });
+                        const imageUrl = URL.createObjectURL(blob);
+
                         return (
                             <div className="horiz-center">
                                 <div className="ad-style">
                                     <div className="center">
-                                        <img
-                                            src="/images/home.svg"
-                                            alt="home"
+                                    <img
+                                            src={`data:image/png;base64,${post.image}`}
+                                            alt={post.title}
                                         />
-                                        <a>작성자: 기니피그</a>
-                                        <a>제목: 배고파</a>
+                                        <a>작성자: {post.authorNickname}</a>
+                                        <a>제목: {post.title}</a>
                                         <div className="SizedBox"></div>
                                         <LikeButton />
                                     </div>
                                 </div>
-                                <div className="SizedBox"></div>
-                                <div className="ad-style">
-                                    <div className="center">
-                                        <img
-                                            src="/images/home.svg"
-                                            alt="home"
-                                        />
-                                        <a>작성자: 볼드모트</a>
-                                        <a>제목: 해리야 해리야</a>
-                                        <div className="SizedBox"></div>
-                                        <LikeButton />
-                                    </div>
-                                </div>
-                            </div>)
+                            </div>
+                        );
                     })
                 }
             </div>
@@ -60,4 +71,4 @@ const contest = () => {
     );
 };
 
-export default contest;
+export default Contest;
