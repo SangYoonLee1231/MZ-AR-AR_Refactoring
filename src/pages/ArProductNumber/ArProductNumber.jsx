@@ -16,6 +16,11 @@ function ArProductNumber() {
   const [photoUrl, setPhotoUrl] = useState(null);
   const [productNum, setProductNum] = useState(0);
 
+  useEffect(() => {
+      console.log("photoUrl 변경됨:", photoUrl);
+      window.localStorage.setItem("photo", photoUrl);
+  }, [photoUrl]);
+
   // const fetchData = () => {
   //   const serverURL = process.env.REACT_APP_SERVER_URL;
   //   http://back.mzarar.kro.kr/api/products/9000;
@@ -60,10 +65,7 @@ function ArProductNumber() {
       });
 
       if (response.status === 200) {
-        setPhotoUrl(response.data);
-        console.log("errorcode 1");
-        console.log(photoUrl);
-        window.localStorage.setItem("photo", photoUrl);
+        setPhotoUrl(response.data); // 해당 photoUrl은 useEffect에서 추적하여 반영 예정
       } else if (response.status === 404) {
         // 응답이 404인 경우 처리
         setPhotoUrl(null);

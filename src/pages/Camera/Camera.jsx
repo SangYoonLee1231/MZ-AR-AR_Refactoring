@@ -18,6 +18,7 @@ function Camera() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  
 
   useEffect(() => {
     // 웹캠 설정
@@ -30,8 +31,18 @@ function Camera() {
 
   useEffect(() => {
     const photoSrc = window.localStorage.getItem("photo");
-    setImgSrc(photoSrc);
+    if (photoSrc) {
+      setImgSrc(`data:image/png;base64,${photoSrc}`);
+    } else {
+      // 이미지가 없으면 기본 이미지로 설정
+      setImgSrc("/images/images-2.jpg");
+    }
+    const imgElement = document.querySelector("img");
+    if (imgElement) {
+      imgElement.src = imgSrc;
+    }
   }, []);
+  
 
   const handleMouseDown = (e) => {
     const clientX = e.clientX || e.touches[0].clientX;
