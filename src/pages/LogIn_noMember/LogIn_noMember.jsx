@@ -77,17 +77,18 @@ function LogIn_noMember() {
                     const { phoneNumber, nickname } = response.data;
                     console.log('phoneNumber:', phoneNumber);
                     console.log('nickname:', nickname);
-                    return response;
+                    // 비동기 처리가 완료된 후에 history 함수를 호출
+                    history(-2); // 페이지 이동
                 }
             } catch (error) {
                 console.error('에러코드:', error);
-                return error.response;
+                // 비동기 처리가 완료된 후에 history 함수를 호출
+                history('/g'); // 페이지 이동
             }
         } else {
             setShowToast_verify(false);
             setShowToast_verify_wrong(true);
             setValid('False');
-            //return null;
         }
     };
 
