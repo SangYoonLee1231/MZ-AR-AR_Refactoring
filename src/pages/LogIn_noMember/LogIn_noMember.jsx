@@ -35,30 +35,25 @@ function LogIn_noMember() {
 
 
     //전화번호가 입력되었을 때 로그인 버튼이 활성화되도록 만듦!
-    const handleLogIn = () => {
-        //특정 username 값이 입력되었을 때 /g 페이지로 이동
-
-        if (username === '01045957817' || username === '01040694033') {
-            history('/g');
-        }
-
-        else if (username !== '' && verify !== '' && isClicked === 'True' && isValid === 'True') {
+    const handleLogIn = async () => {
+        if (username !== '' && verify !== '' && isClicked === 'True' && isValid === 'True') {
             setShowToast(true);
-            setTimeout(() => {
+            setTimeout(async () => {
                 setShowToast(false);
-                // 여기서 추가: verifyUserResponse가 404인 경우 /g로 이동
-                if (verifyUserResponse === null) {
-                    history('/g');
-                } else {
-                    history(-2); // 메인 화면으로 이동
+                try {
+                    const response = await verifyUser();
+                    if (response) {
+                        history(-2);
+                    } else {
+                        history('/g');
+                    }
+                } catch (error) {
+                    console.error('에러코드:', error);
                 }
             }, 500);
-        }
-
-        else {
+        } else {
             alert('전화번호를 입력하려무나');
         }
-
     };
 
     const verifyUser = async () => {
@@ -67,33 +62,34 @@ function LogIn_noMember() {
             setShowToast_verify_wrong(false);
             setValid('True');
 
-            //post 요청의 데이터를 객체로 준비
-
             try {
-                //axios를 사용한 post 요청
                 const response = await axios.post(`${SERVER}users/login`, null, {
                     params: {
                         phoneNumber: username
                     }
                 });
 
-                console.log('api 응답값:', response.data); //axios는 response.data를 사용해 응답 데이터에 접근한다
-                verifyUserResponse = response; // 응답을 변수에 저장
+                console.log('api 응답값:', response.data);
 
-                // 여기서 추가: 응답이 404인 경우 예외 처리
                 if (response.status === 404) {
-                    verifyUserResponse = null; // 응답을 null로 설정
+                    return null;
+                } else {
+                    const { phoneNumber, nickname } = response.data;
+                    console.log('phoneNumber:', phoneNumber);
+                    console.log('nickname:', nickname);
+                    return response;
                 }
             } catch (error) {
                 console.error('에러코드:', error);
-                verifyUserResponse = error.response; // 에러 응답을 변수에 저장
+                return error.response;
             }
         } else {
             setShowToast_verify(false);
             setShowToast_verify_wrong(true);
             setValid('False');
+            //return null;
         }
-    }
+    };
 
     useEffect(() => {
         if (verify === '') {
