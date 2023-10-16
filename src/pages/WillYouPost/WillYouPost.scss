@@ -4,8 +4,31 @@
 
 .body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.captured-image-area {
+}
+
+.captured-image-button-area {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+    font-size: larger;
+    font-weight: 600;
+  }
 }
 
 .will-you-post-center {
