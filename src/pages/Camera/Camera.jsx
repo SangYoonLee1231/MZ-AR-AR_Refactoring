@@ -186,7 +186,7 @@ function Camera() {
           transform: `rotate(${rotation}deg)`,
         }}
       >
-        <img src="/images/images-2.jpg" width={`${imgSize}%`} />
+        <img src={imgSrc} width={`${imgSize}%`} />
       </div>
       <div className="camera-div">
         <button

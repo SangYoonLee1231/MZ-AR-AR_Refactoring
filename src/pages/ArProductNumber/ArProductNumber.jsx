@@ -58,14 +58,14 @@ function ArProductNumber() {
     const username = "사용자 이름"; // 사용자 이름 또는 번호
 
     try {
-      const response = await axios.get(`${serverURL}products/${productNum}`, {
+      const response = await axios.get(`${serverURL}/products/${productNum}`, {
         params: {
           phoneNumber: username,
         },
       });
 
       if (response.status === 200) {
-        setPhotoUrl(response.data); // 해당 photoUrl은 useEffect에서 추적하여 반영 예정
+        setPhotoUrl(response.data.image); // 해당 photoUrl은 useEffect에서 추적하여 반영 예정
       } else if (response.status === 404) {
         // 응답이 404인 경우 처리
         setPhotoUrl(null);
