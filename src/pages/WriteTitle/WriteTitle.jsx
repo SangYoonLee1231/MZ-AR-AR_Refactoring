@@ -20,16 +20,21 @@ function WriteTitle() {
     setUsername(e.target.value);
   };
   const handleLogIn = () => {
-    if (username !== "") {
-      setShowToast(true);
-      setTimeout(() => {
-        setShowToast(false);
-        //contest 페이지로 이동하기
-        history("/i");
-      }, 500); //0.8초 후 토스트 메시지를 숨기고 이동
-    } else {
-      alert("사진에 제목이 등록되었습니다!");
+
+
+    
+    if (username =="") {
+      alert("제목이 입력되지 않았습니다.");
+      // alert("사진에 제목이 등록되었습니다!");
     }
+    alert("제목이 입력되지 않았습니다.");
+    // setShowToast(true);
+    // setTimeout(() => {
+    //   setShowToast(false);
+    //   //contest 페이지로 이동하기
+    //   history("/i");
+    // }, 500); //0.8초 후 토스트 메시지를 숨기고 이동
+
   };
 
   //입력 시 버튼이 활성화되게 하기 위한 변수
