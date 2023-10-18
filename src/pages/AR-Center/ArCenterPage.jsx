@@ -12,7 +12,7 @@ const A = () => {
       <div className="center">
         <div className="horiz-style">
           <div className="bigButton-style">
-            <Link to="/j">
+            <Link to="/ar-product-number">
               <button className="full-button-vertical-left">
                 <div className="lefted-font">
                   <span className="big-font">AR로</span>
@@ -31,7 +31,7 @@ const A = () => {
             </Link>
           </div>
           <div className="bigButton-style">
-            <Link to="/c">
+            <Link to="/camera-user">
               <button className="full-button-vertical-right">
                 <div className="righted-font">
                   <span className="big-font">AR 트릭아트</span>
@@ -50,7 +50,7 @@ const A = () => {
           </div>
         </div>
         <div className="horiz-bigButton-style">
-          <Link to="/i">
+          <Link to="/contest">
             <button className="full-button-horiz">
               <div className="lefted-font">
                 <span className="big-font">AR 트릭아트 사진 대전</span>

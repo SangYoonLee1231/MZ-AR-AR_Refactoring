@@ -160,7 +160,7 @@ function Camera() {
       // document.body.appendChild(imgTag);
 
       window.localStorage.setItem("captured-img-src", dataURL);
-      history("/k");
+      history("/will-you-post");
     };
   };
 

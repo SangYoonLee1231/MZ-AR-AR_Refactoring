@@ -17,8 +17,8 @@ function ArProductNumber() {
   const [productNum, setProductNum] = useState(0);
 
   useEffect(() => {
-      console.log("photoUrl 변경됨:", photoUrl);
-      window.localStorage.setItem("photo", photoUrl);
+    console.log("photoUrl 변경됨:", photoUrl);
+    window.localStorage.setItem("photo", photoUrl);
   }, [photoUrl]);
 
   // const fetchData = () => {
@@ -94,7 +94,7 @@ function ArProductNumber() {
       setTimeout(() => {
         setShowToast(false);
         //ar캠으로 이동하기
-        history("/b");
+        history("/camera");
       }, 500); //0.8초 후 토스트 메시지를 숨기고 이동
     } else {
       alert("정확한 제품번호를 입력해주세요!");

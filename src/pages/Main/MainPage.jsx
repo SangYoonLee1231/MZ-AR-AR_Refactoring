@@ -35,34 +35,18 @@ const Main = () => {
       <div className="center">
         <div className="SizedBox"></div>
         <div className="horiz-style">
-          <Link to="/f">
+          <Link to="/login-page">
             <button className="button-horiz">로그인</button>
           </Link>
           <div className="SizedBox"></div>
         </div>
         <ImageSlider />
         <div className="center">
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
+          <div className="SizedBox"></div>
+          <div className="SizedBox"></div>
+          <div className="SizedBox"></div>
+          <div className="SizedBox"></div>
+          <div className="SizedBox"></div>
         </div>
       </div>
       <Nav />

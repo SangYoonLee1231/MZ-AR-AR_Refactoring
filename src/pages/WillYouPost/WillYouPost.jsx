@@ -56,12 +56,12 @@ const WillYouPost = () => {
           </div>
 
           <div className="button-area">
-            <Link to="/l">
+            <Link to="/write-title">
               <button className="button-style">
                 <a>네. 참가할래요!</a>
               </button>
             </Link>
-            <Link to="/a">
+            <Link to="/main-page">
               <button className="button-style">
                 <a>아니요. 괜찮아요.</a>
               </button>

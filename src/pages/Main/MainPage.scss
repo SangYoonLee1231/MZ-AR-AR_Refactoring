@@ -42,7 +42,7 @@
 }
 
 .banner {
-  width: 100%;
+  width: 100vw;
   height: 200px;
   background-color: black;
 
@@ -91,6 +91,7 @@ to {
 }
 
 .map {
+  width: 100%;
   border-radius: 30px;
   text-align: center;
   display: flex;
@@ -98,9 +99,9 @@ to {
   align-items: center;
   justify-content: center;
 
-  img {
-    width: 600px;
-    height: 400px;
+  .info-image {
+    width: 100%;
+    // height: 400px;
   }
 }
 
