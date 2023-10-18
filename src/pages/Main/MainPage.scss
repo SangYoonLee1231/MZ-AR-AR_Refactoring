@@ -31,18 +31,14 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+// @media (prefers-reduced-motion: no-preference) {
+//   .App-logo {
+//     animation: App-logo-spin infinite 20s linear;
+//   }
+// }
 
 .header-style {
   display: flex;
-}
-
-.bunddang {
-  margin-top: 30px;
 }
 
 .banner {
@@ -98,6 +94,7 @@ to {
   border-radius: 30px;
   text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -110,6 +107,7 @@ to {
 .image-slider {
   text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }

@@ -55,7 +55,7 @@
   left: 50%;
   transform: translateX(-50%);
 
-  img {
+  img { 
     width: 70px;
     padding-bottom: 12px;
   }
@@ -80,3 +80,15 @@
 // .h2 {
 //   text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
 // }
+
+@media (max-width: 768px) {
+  .Nav {
+    width: 100%; // 모바일 환경에서는 100%로 설정
+  }
+
+  .nav-button-style {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); // 정 중앙에 위치시키기
+  }
+}

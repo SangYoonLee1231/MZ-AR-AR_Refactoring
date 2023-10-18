@@ -8,11 +8,13 @@ const Header = () => {
             <img
                 src="/images/lottelogo.svg"
                 alt="LotteLogo"
+                className="responsive-image"
             />
             <div className="bunddang">
                 <img
                     src="/images/bunddang.svg"
                     alt="bunddangAR"
+                    className="responsive-image"
                 />
             </div>
         </div>
