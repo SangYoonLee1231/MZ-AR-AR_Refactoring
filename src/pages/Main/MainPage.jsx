@@ -35,7 +35,7 @@ const Main = () => {
       <div className="center">
         <div className="SizedBox"></div>
         <div className="horiz-style">
-          <Link to="/f">
+          <Link to="/login-page">
             <button className="button-horiz">로그인</button>
           </Link>
           <div className="SizedBox"></div>

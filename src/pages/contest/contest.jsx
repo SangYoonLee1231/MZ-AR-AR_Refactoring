@@ -15,7 +15,7 @@ const Contest = () => {
     // API 요청 함수
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${serverAddress}posts`);
+        const response = await axios.get(`${serverAddress}/posts`);
         setPosts(response.data); // API 응답을 state에 저장
       } catch (error) {
         console.error("An error occurred while fetching data:", error);
@@ -33,7 +33,7 @@ const Contest = () => {
         <h1>기발하고 독특한 사진에게 좋아요를 눌러보세요.</h1>
         <div className="SizedBox"></div>
 
-        <Link to="/d">
+        <Link to="/ar-center-page">
           <button className="button-style">
             <a>홈으로 돌아가기</a>
           </button>
