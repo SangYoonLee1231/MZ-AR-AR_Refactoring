@@ -27,22 +27,22 @@ const router = createBrowserRouter([
         errorElement: <ErrorComponent />,
       },
       {
-        path: "a",
+        path: "main",
         element: <MainPage />,
         errorElement: <ErrorComponent />,
       },
       {
-        path: "b",
+        path: "camera",
         element: <Camera />,
         errorElement: <ErrorComponent />,
       },
       {
-        path: "c",
+        path: "camera-user",
         element: <Camera_User />,
         errorElement: <ErrorComponent />,
       },
       {
-        path: "d",
+        path: "ar-center-page",
         element: <ArCenterPage />,
         errorElement: <ErrorComponent />,
         // children: [
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         // ],
       },
       {
-        path: "e",
+        path: "event-page",
         element: <EventPage />,
         errorElement: <ErrorComponent />,
         // children: [
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         // ],
       },
       {
-        path: "f",
+        path: "login-page",
         element: <LoginPage />,
         errorElement: <ErrorComponent />,
         // children: [
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
         // ],
       },
       {
-        path: "g",
+        path: "sign-up",
         element: <SignUp />,
         errorElement: <ErrorComponent />,
         // children: [
@@ -86,7 +86,7 @@ const router = createBrowserRouter([
         // ],
       },
       {
-        path: "h",
+        path: "login-no-member",
         element: <LogIn_noMember />,
         errorElement: <ErrorComponent />,
         // children: [
@@ -97,7 +97,7 @@ const router = createBrowserRouter([
         // ],
       },
       {
-        path: "i",
+        path: "contest",
         element: <Contest />,
         errorElement: <ErrorComponent />,
         // children: [
@@ -108,7 +108,7 @@ const router = createBrowserRouter([
         // ],
       },
       {
-        path: "j",
+        path: "ar-product-number",
         element: <ArProductNumber />,
         errorElement: <ErrorComponent />,
         // children: [
@@ -120,7 +120,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "k",
+        path: "will-you-post",
         element: <WillYouPost />,
         errorElement: <ErrorComponent />,
         // children: [
@@ -131,7 +131,7 @@ const router = createBrowserRouter([
         // ],
       },
       {
-        path: "l",
+        path: "write-title",
         element: <WriteTitle />,
         errorElement: <ErrorComponent />,
         // children: [
@@ -142,7 +142,7 @@ const router = createBrowserRouter([
         // ],
       },
       {
-        path: "m",
+        path: "exchange",
         element: <Exchange />,
         errorElement: <ErrorComponent />,
         // children: [
@@ -153,7 +153,7 @@ const router = createBrowserRouter([
         // ],
       },
       {
-        path: "n",
+        path: "keep-page",
         element: <KeepPage />,
         errorElement: <ErrorComponent />,
         // children: [
@@ -163,7 +163,6 @@ const router = createBrowserRouter([
         //   },
         // ],
       },
-
     ],
     errorElement: <ErrorComponent />,
   },

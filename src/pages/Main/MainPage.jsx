@@ -42,27 +42,11 @@ const Main = () => {
         </div>
         <ImageSlider />
         <div className="center">
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
-          <a>아무내용</a>
+          <div className="SizedBox"></div>
+          <div className="SizedBox"></div>
+          <div className="SizedBox"></div>
+          <div className="SizedBox"></div>
+          <div className="SizedBox"></div>
         </div>
       </div>
       <Nav />
