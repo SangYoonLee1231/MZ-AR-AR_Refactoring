@@ -5,11 +5,30 @@ import "./WillYouPost.scss";
 import Header from "../../components/header.jsx";
 
 const WillYouPost = () => {
+  const capturedImgUrl = window.localStorage.getItem("captured-img-src");
+
   return (
     <div>
       <Header />
       <div className="SizedBox"></div>
+      <div className="SizedBox"></div>
       <div className="body">
+        <div className="captured-image-area">
+          <div className="sized-box">
+            <img src={`${capturedImgUrl}`} width="600px" />
+          </div>
+        </div>
+
+        <div className="SizedBox"></div>
+
+        <div className="captured-image-button-area">
+          <div>재촬영</div>
+          <div>저장</div>
+          <div>공유</div>
+        </div>
+
+        <div className="SizedBox"></div>
+
         <div className="will-you-post-center">
           <div className="text-area">
             <div className="SizedBox"></div>
@@ -51,6 +70,12 @@ const WillYouPost = () => {
           </div>
         </div>
       </div>
+      <div className="SizedBox"></div>
+      <div className="SizedBox"></div>
+      <div className="SizedBox"></div>
+      <div className="SizedBox"></div>
+      <div className="SizedBox"></div>
+      <div className="SizedBox"></div>
       <Nav />
     </div>
   );

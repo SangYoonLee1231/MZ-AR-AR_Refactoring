@@ -7,48 +7,73 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Header from "../../components/header.jsx";
+import axios from "axios";
 
 import "./ArProductNumber.scss";
 
 function ArProductNumber() {
   // API 통신
-  const [imageURL, setImageURL] = useState(null);
+  const [photoUrl, setPhotoUrl] = useState(null);
   const [productNum, setProductNum] = useState(0);
 
-  //   useEffect(() => {
+  useEffect(() => {
+      console.log("photoUrl 변경됨:", photoUrl);
+      window.localStorage.setItem("photo", photoUrl);
+  }, [photoUrl]);
 
-  //   })
+  // const fetchData = () => {
+  //   const serverURL = process.env.REACT_APP_SERVER_URL;
+  //   http://back.mzarar.kro.kr/api/products/9000;
+  //   https://back.mzarar.kro.kr/api
 
-  const fetchData = () => {
-    const serverURL = process.env.REACT_APP_SERVER_URL;
-    // http://back.mzarar.kro.kr/api/products/9000;
-    // https://back.mzarar.kro.kr/api
+  //   fetch(` ${serverURL}/products/${productNum}`)
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         console.log(
+  //           "API 요청에 성공했습니다. 응답 상태 코드:",
+  //           response.status
+  //         );
+  //         return response.blob();
+  //       } else {
+  //         console.log(
+  //           "API 요청이 실패했습니다. 응답 상태 코드:",
+  //           response.status
+  //         );
+  //         throw new Error("Request failed");
+  //       }
+  //     })
+  //     .then((blobData) => {
+  //       console.log(blobData);
+  //       // Blob 데이터를 URL로 변환하여 이미지를 표시합니다.
+  //       const imageUrl = URL.createObjectURL(blobData);
+  //       setImageURL(imageUrl);
+  //     })
+  //     .catch((error) => {
+  //       console.error("API Error:", error);
+  //     });
+  // };
 
-    fetch(`${serverURL}/products/${productNum}`)
-      .then((response) => {
-        if (response.ok) {
-          console.log(
-            "API 요청에 성공했습니다. 응답 상태 코드:",
-            response.status
-          );
-          return response.blob();
-        } else {
-          console.log(
-            "API 요청이 실패했습니다. 응답 상태 코드:",
-            response.status
-          );
-          throw new Error("Request failed");
-        }
-      })
-      .then((blobData) => {
-        console.log(blobData);
-        // Blob 데이터를 URL로 변환하여 이미지를 표시합니다.
-        const imageUrl = URL.createObjectURL(blobData);
-        setImageURL(imageUrl);
-      })
-      .catch((error) => {
-        console.error("API Error:", error);
+  const fetchData = async () => {
+    const serverURL = process.env.REACT_APP_SERVER;
+    const username = "사용자 이름"; // 사용자 이름 또는 번호
+
+    try {
+      const response = await axios.get(`${serverURL}/products/${productNum}`, {
+        params: {
+          phoneNumber: username,
+        },
       });
+
+      if (response.status === 200) {
+        setPhotoUrl(response.data.image); // 해당 photoUrl은 useEffect에서 추적하여 반영 예정
+      } else if (response.status === 404) {
+        // 응답이 404인 경우 처리
+        setPhotoUrl(null);
+      }
+    } catch (error) {
+      console.error("에러코드:", error);
+      setPhotoUrl(null); // 에러 발생 시 photoUrl을 null로 설정
+    }
   };
 
   const [showToast, setShowToast] = useState(false);
@@ -60,10 +85,9 @@ function ArProductNumber() {
   const handleLogIn = () => {
     if (productNum !== "") {
       //
-      console.log(productNum);
+      // console.log(productNum);
       fetchData();
-      localStorage.setItem("product-image-url", imageURL);
-      console.log(imageURL);
+      // localStorage.setItem("product-image-url", photoUrl);
 
       //
       setShowToast(true);
