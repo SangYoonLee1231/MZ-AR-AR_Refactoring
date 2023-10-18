@@ -4,9 +4,12 @@ import './LogIn_noMember.scss';
 import Header from '../../components/header.jsx';
 import axios from 'axios';
 
+//username을, 닉네임 생성 페이지로 넘겨줘서, 서버로 post하도록 api를 달아야 한다
+let PhoneUsernameValue = '';
+
 function LogIn_noMember() {
     //useState를 생성한다
-    const [username, setUsername] = useState('');
+    const [PhoneUsername, setUsername] = useState('');
     const [verify, setVerify] = useState('');
     let [isClicked, setClicked] = useState('');
     let [isValid, setValid] = useState('');
@@ -28,72 +31,79 @@ function LogIn_noMember() {
     const LogIn_id = (e) => {
         setUsername(e.target.value);
     };
-
     const verifyNumber = (e) => {
         setVerify(e.target.value);
     }
 
 
+
     //전화번호가 입력되었을 때 로그인 버튼이 활성화되도록 만듦!
-    const handleLogIn = () => {
-        //특정 username 값이 입력되었을 때 /g 페이지로 이동
-
-        if (username === '01045957817' || username === '01040694033') {
-            history('/g');
-        }
-
-        else if (username !== '' && verify !== '' && isClicked === 'True' && isValid === 'True') {
+    const handleLogIn = async () => {
+        let response = null; //response 변수 선언
+        console.log('여기는 handleLogIn 함수. 현재 입력된 전화번호는', PhoneUsername);
+        if (PhoneUsername !== '' && verify !== '' && isClicked === 'True' && isValid === 'True') {
             setShowToast(true);
-            setTimeout(() => {
+            setTimeout(async () => {
                 setShowToast(false);
-                // 여기서 추가: verifyUserResponse가 404인 경우 /g로 이동
-                if (verifyUserResponse === null) {
-                    history('/g');
-                } else {
-                    history(-2); // 메인 화면으로 이동
+                try {
+                    response = await verifyUser();
+                    if (response) {
+                        history(-2);
+                    } else {
+                        console.log('여기는 handleLogIn 함수. 현재 입력된 전화번호는', PhoneUsername);
+                        history('/g');
+                    }
+                } catch (error) {
+                    console.error('에러코드:', error);
                 }
             }, 500);
-        }
-
-        else {
+        } else {
             alert('전화번호를 입력하려무나');
         }
-
     };
 
+    //비동기 함수를 잘 써야한다. 함수의 응답을 기다려서 값을 받고, 비교하고, 이동해야 한다.
+    //안그러면 초기값이랑 비교해서 페이지 이동 이상하게 됨
     const verifyUser = async () => {
         if (isClicked === 'True' && verify === '1102') {
             setShowToast_verify(true);
             setShowToast_verify_wrong(false);
             setValid('True');
 
-            //post 요청의 데이터를 객체로 준비
-
             try {
-                //axios를 사용한 post 요청
-                const response = await axios.post(`${SERVER}users/login`, null, {
+                const response = await axios.post(`${SERVER}/users/login`, null, {
                     params: {
-                        phoneNumber: username
+                        phoneNumber: PhoneUsername
                     }
                 });
 
-                console.log('api 응답값:', response.data); //axios는 response.data를 사용해 응답 데이터에 접근한다
-                verifyUserResponse = response; // 응답을 변수에 저장
+                console.log('api 응답값:', response.data);
 
-                // 여기서 추가: 응답이 404인 경우 예외 처리
                 if (response.status === 404) {
-                    verifyUserResponse = null; // 응답을 null로 설정
+                    //전화번호를 여기서 저장
+                    //window.localStorage.setItem('phone-username', PhoneUsername);
+                    PhoneUsernameValue = PhoneUsername; //전화번호를 저장
+                    console.log('여기는 PhoneUsernameValue = PhoneUsername 부분. 현재 입력된 전화번호는', PhoneUsername);
+                    //return null;
+                } else if (response.status !== 404) {
+                    //phoneNumber랑 nickname을 파싱해서 가져오자, contest 페이지로 넘겨주어야 한다.
+                    const { phoneNumber, nickname } = response.data;
+                    console.log('phoneNumber:', phoneNumber);
+                    console.log('nickname:', nickname);
+                    //비동기 처리가 완료된 후에 history 함수를 호출
+                    history(-2); //페이지 이동
                 }
             } catch (error) {
                 console.error('에러코드:', error);
-                verifyUserResponse = error.response; // 에러 응답을 변수에 저장
+                //비동기 처리가 완료된 후에 history 함수를 호출
+                history('/g'); //페이지 이동
             }
         } else {
             setShowToast_verify(false);
             setShowToast_verify_wrong(true);
             setValid('False');
         }
-    }
+    };
 
     useEffect(() => {
         if (verify === '') {
@@ -114,7 +124,7 @@ function LogIn_noMember() {
     }, [timeRemaining]);
 
 
-    const isButtonDisabled = username === '' || verify === '' || isClicked === '' || isValid === '' || isValid === 'False';
+    const isButtonDisabled = PhoneUsername === '' || verify === '' || isClicked === '' || isValid === '' || isValid === 'False';
 
     return (
         <div>
@@ -129,7 +139,7 @@ function LogIn_noMember() {
                     <div className="horizDIV">
                         <input
                             type="text"
-                            value={username}
+                            value={PhoneUsername}
                             onChange={LogIn_id}
                             style={{ width: '300px', height: '40px' }}
                             placeholder="핸드폰 번호"
@@ -193,4 +203,9 @@ function LogIn_noMember() {
     );
 }
 
+export function getPhoneUsernameValue() {
+    return PhoneUsernameValue;
+}
+//export const PhoneUsername = '왜 자꾸 전달이 안되는거임?';
+//export { PhoneUsernameValue };
 export default LogIn_noMember;
