@@ -18,16 +18,18 @@ const Main = () => {
       <Header />
       <div className="banner">
         <div className="banner-font-style">
-          <a className="fontColor">MZ</a>
-          <a style={{ color: "white", fontSize: 30 }}>를 잘</a>
-          <a className="fontColor">AR</a>
-          <a style={{ color: "white", fontSize: 30 }}>니깐!</a>
+          <span className="fontColor">MZ</span>
+          <span style={{ color: "white", fontSize: 30 }}>를 잘</span>
+          <span className="fontColor">AR</span>
+          <span style={{ color: "white", fontSize: 30 }}>니깐!</span>
         </div>
         <div className="banner-ment-style">
-          <a style={{ color: "white", fontSize: 40 }}>지금 분당점은?</a>
+          <span style={{ color: "white", fontSize: 35 }}>지금 분당점은?</span>
           <div className="SizedBox"></div>
           <div className="banner-mzarar-style">
-            <a style={{ color: "black", fontSize: 50 }}>MZ-AR-AR</a>
+            <span style={{ color: "black", fontSize: 45, padding: 20 }}>
+              MZ-AR-AR
+            </span>
           </div>
         </div>
       </div>

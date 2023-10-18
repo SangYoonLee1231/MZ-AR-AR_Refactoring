@@ -42,6 +42,8 @@
 }
 
 .banner {
+  display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 200px;
   background-color: black;
@@ -68,6 +70,7 @@
     display: flex;
     padding-top: 20px;
     justify-content: center;
+    align-items: center;
     font-weight: 700;
   }
 }
@@ -149,4 +152,25 @@ to {
   border: 2px solid rgb(251, 131, 131);
   color: white;
   font-size: 10px;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 250px;
+
+    &-font-style {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    &-ment-style {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+  }
 }
