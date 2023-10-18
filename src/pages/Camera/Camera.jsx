@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./Camera.scss";
 
 function Camera() {
@@ -9,6 +10,8 @@ function Camera() {
   const [imgSize, setImgSize] = useState(100); // 슬라이더로 조절할 이미지 크기, 퍼센트 단위
   const [rotation, setRotation] = useState(0); // 이미지 회전 각도
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  //   const [capturedImgSrc, setCapturedImgSrc] = useState("");
+  const history = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -18,7 +21,6 @@ function Camera() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  
 
   useEffect(() => {
     // 웹캠 설정
@@ -42,7 +44,8 @@ function Camera() {
       imgElement.src = imgSrc;
     }
   }, []);
-  
+
+  useEffect(() => {});
 
   const handleMouseDown = (e) => {
     const clientX = e.clientX || e.touches[0].clientX;
@@ -152,9 +155,12 @@ function Camera() {
       // window.open(dataURL, '_blank');
       // 캡처된 이미지를 새 창에 띄우기 대신 페이지에 삽입
       const dataURL = canvasElement.toDataURL("image/png");
-      const imgTag = document.createElement("img");
-      imgTag.src = dataURL;
-      document.body.appendChild(imgTag);
+      // const imgTag = document.createElement("img");
+      // imgTag.src = dataURL;
+      // document.body.appendChild(imgTag);
+
+      window.localStorage.setItem("captured-img-src", dataURL);
+      history("/k");
     };
   };
 
