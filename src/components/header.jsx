@@ -10,22 +10,24 @@ import "./header.scss";
 
 const Header = () => {
   return (
-    <div className="header-style">
-      <Link to="/">
-        <img
-          src="/images/lottelogo.svg"
-          alt="LotteLogo"
-          className="responsive-image"
-        />
+    <Link to="/">
+      <div className="header-style">
+        <div className="logo-image">
+          <img
+            src="/images/lottelogo.svg"
+            alt="LotteLogo"
+            className="responsive-image-1"
+          />
+        </div>
         <div className="bunddang">
           <img
             src="/images/bunddang.svg"
             alt="bunddangAR"
-            className="responsive-image"
+            className="responsive-image-2"
           />
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 
