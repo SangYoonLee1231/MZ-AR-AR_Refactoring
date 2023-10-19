@@ -18,7 +18,7 @@ function SignUp() {
     //변수 받아오려고 추가해봤음
     //const this_phone = LogIn_noMember.PhoneUsernameValue; //이렇게 쓰면 전화번호가 undefined 나오고
     //const this_phone = PhoneUsernameValue; //이렇게 쓰면 전화번호가 없음 그냥...
-    const phoneUsernameValue = getPhoneUsernameValue();
+    const phoneUsernameValue = window.localStorage.getItem('phone-username');
 
     //토스트 메시지를 띄우기 위한 설정~
     const [showToast, setShowToast] = useState(false);

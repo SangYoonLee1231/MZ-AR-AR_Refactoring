@@ -146,7 +146,7 @@ function LogIn() {
           </div>
         </button>
         <div className="SizedBox_ver2"></div>
-        <Link to="/h">
+        <Link to="/login-no-member">
           <button className="GuestLogin">
             <a>게스트 로그인</a>
           </button>
