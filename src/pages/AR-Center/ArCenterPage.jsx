@@ -36,7 +36,7 @@ const A = () => {
               <button className="full-button-vertical-right">
                 <div className="righted-font">
                   <span className="big-font">AR</span>
-                  <span className="big-font">트릭아트</span>
+                  <span className="big-font">제품 착용 후</span>
                   <span className="big-font">사진찍기</span>
                   <div className="SizedBox"></div>
                   <span>포토존을 찾아</span>
@@ -55,7 +55,7 @@ const A = () => {
           <Link to="/contest">
             <button className="full-button-horiz">
               <div className="lefted-font">
-                <span className="big-font">AR 트릭아트 사진 대전</span>
+                <span className="big-font">AR 착용 사진 대전</span>
                 <div className="SizedBox"></div>
                 <span>사진을 공개하고 좋아요를 받아보세요.</span>
                 <span>특별한 선물이 준비돼있어요.</span>

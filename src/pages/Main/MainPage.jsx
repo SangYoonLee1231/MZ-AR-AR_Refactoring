@@ -62,6 +62,7 @@ const Main = () => {
         </div>
 
         <ImageSlider />
+
         <div className="center">
           <div className="SizedBox"></div>
           <div className="SizedBox"></div>
