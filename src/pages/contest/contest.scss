@@ -15,7 +15,11 @@
 
 .photo-list {
   display: grid;
-  grid-template-columns: 500px 500px;
+  grid-template-columns: repeat(2, 1fr); // 상대적인 크기로 조정
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr; // 375px 이하에서는 1열로
+  }
 
   span {
     padding-top: 10px;
@@ -35,7 +39,7 @@
 }
 
 .ad-style {
-  width: 400px;
+  // width: 100%; // 상대적인 크기로
   height: 330px;
   border-radius: 30px;
   //   border: 2px solid red;
@@ -50,6 +54,12 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  @media (max-width: 374px) {
+    img {
+      width: 310px;
+    }
   }
 }
 

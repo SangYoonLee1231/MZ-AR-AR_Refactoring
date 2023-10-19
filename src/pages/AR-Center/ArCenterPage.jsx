@@ -19,7 +19,7 @@ const A = () => {
                   <span className="big-font">제품</span>
                   <span className="big-font">착용해보기</span>
                   <div className="SizedBox"></div>
-                  <span>진열돼있지 않은</span>
+                  <span>진열되지 않은</span>
                   <span>상품도</span>
                   <div className="SizedBox"></div>
                   <span>지금 바로</span>
