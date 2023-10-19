@@ -66,7 +66,7 @@ const WillYouPost = () => {
                 <span>아니요. 괜찮아요.</span>
               </button>
             </Link>
-            <div className="SizedBox"></div>
+            {/* <div className="SizedBox"></div> */}
           </div>
         </div>
       </div>

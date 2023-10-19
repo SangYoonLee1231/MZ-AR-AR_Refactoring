@@ -47,7 +47,7 @@ function LogIn() {
       <Header />
       <div className="vertical-center-lineUp">
         <div className="LpointDIV">
-          <a>L.POINT 통합회원</a>
+          <span>L.POINT 통합회원</span>
         </div>
         <div className="noticeDIV">
           <div>
@@ -55,8 +55,9 @@ function LogIn() {
           </div>
           <div className="SizedBox_ver2"></div>
           <div className="columnDIV">
-            <a>정식 서비스가 아니므로, 현재 L.POINT 통합 로그인이 제한됩니다.</a>
-            <a>게스트 로그인으로 이용 바랍니다.</a>
+            <span>정식 서비스가 아니므로, </span>
+            <span>현재 L.POINT 통합 로그인이 제한됩니다.</span>
+            <span>게스트 로그인으로 이용 바랍니다.</span>
           </div>
         </div>
         <div className="SizedBox_ver1"></div>
@@ -127,11 +128,11 @@ function LogIn() {
 
         <div className="rowDIV">
           <div className="strokeDIV"></div>
-          <div className="SizedBox_ver2"></div>
+          {/* <div className="SizedBox_ver2"></div> */}
           <div>
-            <a href="#" style={{ color: 'gray', textDecoration: 'none' }}>또는</a>
+            <a href="#" style={{ color: 'gray', textDecoration: 'none', padding: '0px 15px'}}>또는</a>
           </div>
-          <div className="SizedBox_ver2"></div>
+          {/* <div className="SizedBox_ver2"></div> */}
           <div className="strokeDIV"></div>
         </div>
 
@@ -145,7 +146,6 @@ function LogIn() {
             <a>롯데 온으로 로그인</a>
           </div>
         </button>
-        <div className="SizedBox_ver2"></div>
         <Link to="/login-no-member">
           <button className="GuestLogin">
             <a>게스트 로그인</a>

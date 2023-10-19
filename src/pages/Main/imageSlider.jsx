@@ -52,7 +52,7 @@ class ImageSlider extends Component {
 
     return (
       <div className="image-slider">
-        <div className="lefted">
+        <div className="lefted" style={{fontWeight:"bold"}}>
           <p>AR 트릭아트 사진을 찍을 수 있는</p>
           <p>포토존의 위치를 확인하세요.</p>
         </div>

@@ -14,6 +14,7 @@ import Register from "./Register.jsx";
 
 //화면 Main(메인화면) 컴포넌트를 만든다
 const Main = () => {
+  const nameUsername = localStorage.getItem("name-username");
   return (
     <div className="main-body">
       <Header />
@@ -53,12 +54,18 @@ const Main = () => {
       </div>
 
       <div className="center">
-        <div className="SizedBox"></div>
         <div className="horiz-style">
-          <Link to="/login-page">
-            <Register />
-          </Link>
-          <div className="SizedBox"></div>
+        {
+          !nameUsername && (
+            <>
+              <div className="SizedBox"></div>
+              <Link to="/login-page">
+                <Register />
+              </Link>
+              <div className="SizedBox"></div>
+            </>
+          )
+        }
         </div>
 
         <ImageSlider />

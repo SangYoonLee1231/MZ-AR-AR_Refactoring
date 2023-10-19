@@ -15,23 +15,23 @@ function Nav() {
         <button
           className="childNav"
           onClick={() => handleButtonClick("/main-page")}
-          style={{ fontSize: 20 }}
+          style={{justifyContent:"start", paddingLeft:"20px" }}
         >
           <img src="/images/home.svg" alt="home" />
 
-          <div className="SizedBox"></div>
-          <span style={{ fontWeight: "bold" }}>홈</span>
+          <div className="SizedBox" style={{width:"10px"}}></div>
+          <span>Home</span>
         </button>
 
         <button
           className="childNav"
           onClick={() => handleButtonClick("/event-page")}
-          style={{ fontSize: 20 }}
+          style={{justifyContent:"end", paddingRight:"20px"  }}
         >
-          <img src="/images/present.svg" alt="present" />
+        <span>이벤트</span>
+        <div className="SizedBox" style={{width:"10px"}}></div>
+        <img src="/images/present.svg" alt="present" />
 
-          <div className="SizedBox"></div>
-          <span style={{ fontWeight: "bold" }}>이벤트</span>
         </button>
       </div>
       <button

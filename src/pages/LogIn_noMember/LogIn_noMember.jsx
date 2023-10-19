@@ -48,10 +48,10 @@ function LogIn_noMember() {
                 try {
                     response = await verifyUser();
                     if (response) {
-                        history(-2);
+                        history('/main-page');
                     } else {
                         console.log('여기는 handleLogIn 함수. 현재 입력된 전화번호는', PhoneUsername);
-                        history('/g');
+                        history('/sign-up');
                     }
                 } catch (error) {
                     console.error('에러코드:', error);
@@ -65,7 +65,7 @@ function LogIn_noMember() {
     //비동기 함수를 잘 써야한다. 함수의 응답을 기다려서 값을 받고, 비교하고, 이동해야 한다.
     //안그러면 초기값이랑 비교해서 페이지 이동 이상하게 됨
     const verifyUser = async () => {
-        if (isClicked === 'True' && verify === '1102') {
+        if (isClicked === 'True' && verify === '1111') {
             setShowToast_verify(true);
             setShowToast_verify_wrong(false);
             setValid('True');
@@ -88,10 +88,12 @@ function LogIn_noMember() {
                 } else if (response.status !== 404) {
                     //phoneNumber랑 nickname을 파싱해서 가져오자, contest 페이지로 넘겨주어야 한다.
                     const { phoneNumber, nickname } = response.data;
+                    window.localStorage.setItem('phone-username', PhoneUsername);
+                    window.localStorage.setItem('name-username', nickname);
                     console.log('phoneNumber:', phoneNumber);
                     console.log('nickname:', nickname);
                     //비동기 처리가 완료된 후에 history 함수를 호출
-                    history(-2); //페이지 이동
+                    history('/main-page'); //페이지 이동
                 }
             } catch (error) {
                 console.error('에러코드:', error);
@@ -144,9 +146,9 @@ function LogIn_noMember() {
                             type="text"
                             value={PhoneUsername}
                             onChange={LogIn_id}
-                            style={{ width: '300px', height: '40px' }}
+                            style={{ width: '200px', height: '40px' }}
                             placeholder="핸드폰 번호"
-                            className="input"
+                            className="login-guest-input"
                         />
                         <button className="verify-button" onClick={() => {
                             setClicked('True');
@@ -177,9 +179,9 @@ function LogIn_noMember() {
                             type="text"
                             value={verify}
                             onChange={verifyNumber}
-                            style={{ width: '300px', height: '40px' }}
+                            style={{ width: '200px', height: '40px' }}
                             placeholder="인증번호를 입력하세요."
-                            className="input"
+                            className="login-guest-input"
                         />
                         <button className="verify-button" onClick={() => {
 

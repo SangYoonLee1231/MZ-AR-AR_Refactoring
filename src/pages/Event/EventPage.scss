@@ -18,6 +18,9 @@
   flex-direction: column;
   overflow: hidden;
   margin: 0 auto;
+  font-family: "MyLotteBold";
+  font-size: x-large;
+  text-align: center;
 
   img {
     width: 100%;
@@ -32,17 +35,40 @@
 
 .ad-this-style {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   width: 80vw;
   height: 200px;
-  padding: 20px;
+  // padding: 20px;
   border-radius: 30px;
   border: 1px solid black;
   margin-bottom: 30px;
+  overflow: hidden; // 새로 추가
+  position: relative; // 새로 추가
 
   .event-name {
     font-size: 20px;
     font-weight: 700;
+  }
+
+  img {
+    position: absolute; // 새로 추가
+    top: 50%; // 새로 추가
+    left: 50%; // 새로 추가
+    height: 100%; // 새로 추가
+    transform: translate(-50%, -50%); // 새로 추가
+    object-fit: cover; // 새로 추가
+  }
+
+  @media (max-width: 600px) {
+    img {
+      height: auto; // 이미지의 원래 세로 길이를 유지
+      width: 100%;  // div의 가로 길이에 맞게 이미지 가로 길이를 조정
+      top: auto; // 중앙 배치 해제
+      left: auto; // 중앙 배치 해제
+      position: relative; // 상대 위치로 변경
+      transform: none; // 위치 이동 해제
+      object-fit: contain; // 가로 길이에 맞게 이미지를 조정, 세로는 비율 유지
+    }
   }
 }
 
@@ -58,9 +84,10 @@
   color: black;
   font-size: 20px;
   font-weight: 700;
+  font-family: "MyLotteBold";
 }
 
-.game-button:hover {
-  background-color: black;
-  color: white;
-}
+// .game-button:hover {
+//   background-color: black;
+//   color: white;
+// }

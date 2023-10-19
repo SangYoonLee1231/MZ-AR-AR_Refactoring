@@ -1,44 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Nav from "../../components/Nav.jsx";
 import "./EventPage.scss";
 import Header from "../../components/header.jsx";
+import axios from 'axios';
 
-const event = () => {
-  //   fetch(`${SERVER}users/login?phoneNumber=${username}`, {
-  //     method: 'POST',
-  //     headers: {
-  //         'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //         username: username,
-  //         verify: verify,
-  //     }),
-  // })
-  //     .then((response) => {
-  //         if (response.ok) {
-  //             return response.json();
-  //         } else {
-  //             throw new Error('Request failed');
-  //         }
-  //     })
-  //     .then((data) => {
-  //         console.log('API Response:', data);
-  //     })
-  //     .catch((error) => {
-  //         console.error('API Error:', error);
-  //     });
+const Event = () => {
+  const [eventList, setEventList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);  // 로딩 상태를 관리하는 상태 변수
 
-  // [이미지, 이동할 링크 주소]
-  const eventList = [
-    ["", ""],
-    ["", ""],
-    ["", ""],
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const SERVER = process.env.REACT_APP_SERVER;
+        const response = await axios.get(`${SERVER}/event-banners`);
+        const data = response.data.map(item => [item.image, item.routingUrl]);
+        setEventList(data);
+      } catch (error) {
+        console.error('데이터를 불러오는 데 실패했습니다:', error);
+      } finally {
+        setIsLoading(false);  // 데이터 불러오기 완료
+      }
 
-  const handleOnClick = (eventInfo) => {
-    window.open(eventInfo[1], "이벤트 페이지");
-  };
+    };
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -52,25 +38,26 @@ const event = () => {
         </div>
         <div className="SizedBox"></div>
 
-        <Link to="/m">
-          <button className="game-button">
-            B 사이트 연동하고 상품권 받으러 가기
-          </button>
-        </Link>
+        <button className="game-button">
+          <a href="https://www.lotteshopping.com/store/main?cstrCd=0008">
+            분당점 공식 사이트로 이동하기
+          </a>
+        </button>
 
         <div className="SizedBox"></div>
         <div className="SizedBox"></div>
 
-        {eventList.map((eventInfo) => {
-          return (
-            <div
-              className="ad-this-style"
-              onClick={(eventInfo) => handleOnClick()}
-            >
-              <img src={eventInfo[0]} className="image-thumbnail" />
-            </div>
-          );
-        })}
+        {isLoading ? (
+          <div>이벤트를 로딩 중입니다.<br/>잠시만 기다려주세요!</div>  // 로딩 중일 때의 UI
+        ) : (
+          eventList.map((eventInfo, index) => {
+            return (
+              <div key={index} className="ad-this-style">
+                <img src={`data:image/png;base64,${eventInfo[0]}`} className="image-thumbnail" />
+              </div>
+            );
+          })
+        )}
       </div>
       <div className="SizedBox"></div>
       <div className="SizedBox"></div>
@@ -81,4 +68,4 @@ const event = () => {
   );
 };
 
-export default event;
+export default Event;

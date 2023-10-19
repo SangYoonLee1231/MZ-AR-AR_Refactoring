@@ -53,9 +53,10 @@ function SignUp() {
                 return null;
             } else {
                 const { phoneNumber, nickname } = response.data;
+                window.localStorage.setItem('name-username', NameUsername);
                 console.log('등록된 전화번호:', phoneNumber);
                 console.log('등록된 닉네임:', nickname);
-                history(-2);
+                history('/main-page');
             }
         } catch (error) {
             console.log('1번 지점');
@@ -99,6 +100,7 @@ function SignUp() {
                 setShowToast(false);
                 console.log('전화번호:', phoneUsernameValue);
                 console.log('닉네임:', NameUsername);
+                window.localStorage.setItem('name-username', NameUsername);
                 sendToServer(phoneUsernameValue, NameUsername); //서버로 전화번호와 닉네임을 전송
                 //이전 화면으로 이동
                 history(-3);
@@ -135,10 +137,10 @@ function SignUp() {
                     }}>
                         <a>중복 검사</a>
                     </button>
-                    <div className="SizedBox_ver2"></div>
-                    {showToast_verify && <div className="toast">사용 가능한 닉네임입니다!</div>}
-                    {showToast_verify_wrong && <div className="toast">사용 불가능한 닉네임입니다!</div>}
                 </div>
+                <div className="SizedBox_ver2"></div>
+                {showToast_verify && <div className="toast">사용 가능한 닉네임입니다!</div>}
+                {showToast_verify_wrong && <div className="toast">사용 불가능한 닉네임입니다!</div>}
                 <div className="SizedBox_ver2"></div>
                 <button
                     className={`LogIn_noMemberPage-button-style ${isButtonDisabled ? 'disabled-button' : ''}`}

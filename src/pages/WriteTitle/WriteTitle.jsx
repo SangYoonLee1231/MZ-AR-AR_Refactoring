@@ -25,13 +25,14 @@ function WriteTitle() {
   const uploadPost = async () => {
     // 로컬 스토리지에서 이미지 데이터를 가져옵니다.
     const imageData = localStorage.getItem("captured-img-src");
+    const NameUsername = localStorage.getItem("name-username");
   
     // Base64 인코딩된 이미지 데이터를 Blob 객체로 변환합니다.
     const imageBlob = await fetch(imageData).then((res) => res.blob());
   
     const formData = new FormData();
     formData.append("title", capturedTitle);
-    formData.append("authorNickname", "작성자");
+    formData.append("authorNickname", NameUsername);
     formData.append("image", imageBlob, "image.png");
   
     try {
@@ -97,11 +98,9 @@ function WriteTitle() {
       </div>
       <div className="SizedBox_ver2"></div>
       <div className="SizedBox_ver2"></div>
-      <span>사회의 미풍양속을 해치지 않는 제목을 입력해주세요.</span>
-      <div className="SizedBox_ver2"></div>
-      <span>성희롱 또는 기타 불쾌감을 조성하는 제목을 사용할 경우</span>
-      <div className="SizedBox_ver2"></div>
-      <span>민령사상 책임을 물을 수 있습니다.</span>
+      <span>미풍양속을 해치지 않는 제목을 입력해주세요.</span>
+      <span>불쾌감을 조성하는 제목을 사용할 경우</span>
+      <span>민형사상 책임을 물을 수 있습니다.</span>
       <div className="SizedBox_ver2"></div>
       {showToast && <div className="toast">사진에 제목이 등록되었습니다!</div>}
     </div>
