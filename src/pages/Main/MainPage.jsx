@@ -10,6 +10,7 @@ import "./MainPage.scss";
 import Nav from "../../components/Nav.jsx";
 import Header from "../../components/header.jsx";
 import ImageSlider from "./imageSlider.jsx";
+import Register from "./Register.jsx";
 
 //화면 Main(메인화면) 컴포넌트를 만든다
 const Main = () => {
@@ -49,10 +50,11 @@ const Main = () => {
         <div className="SizedBox"></div>
         <div className="horiz-style">
           <Link to="/login-page">
-            <button className="button-horiz">로그인</button>
+            <Register />
           </Link>
           <div className="SizedBox"></div>
         </div>
+        
         <ImageSlider />
         <div className="center">
           <div className="SizedBox"></div>
