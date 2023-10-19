@@ -5,6 +5,7 @@ import "./Camera.scss";
 function Camera() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  const imageRef = useRef(null);
   const [imgSrc, setImgSrc] = useState("/images/images-2.jpg");
   const [imgPos, setImgPos] = useState({ x: 0, y: 0 });
   const [imgSize, setImgSize] = useState(100); // 슬라이더로 조절할 이미지 크기, 퍼센트 단위
@@ -28,7 +29,12 @@ function Camera() {
     navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
       const video = videoRef.current;
       video.srcObject = stream;
-      video.play();
+      // play() 함수가 Promise를 반환하기 때문에 then() 또는 await을 사용
+      video.play().then(() => {
+        console.log("Video played successfully");
+      }).catch((error) => {
+        console.error("Failed to play video: ", error);
+      });
     });
   }, [windowWidth]);
 
@@ -128,22 +134,24 @@ function Camera() {
 
     // 이미지 로드 및 캡처
     const img = new Image();
+    const imgWidth = imageRef.current.clientWidth;
+    const imgHeight = imageRef.current.clientHeight;
     // img.src = "/images/images-2.jpg";
     img.src = imgSrc;
     img.onload = () => {
       // 이미지 회전과 위치 조절
       ctx.save();
       ctx.translate(
-        imgPos.x + (img.width * imgSize) / 200,
-        imgPos.y + (img.height * imgSize) / 200
+        imgPos.x + (imgWidth) / 200,
+        imgPos.y - 40 + (imgHeight) / 200
       );
       ctx.rotate(rotation * (Math.PI / 180));
       ctx.drawImage(
         img,
-        -((img.width * imgSize) / 200),
-        -((img.height * imgSize) / 200),
-        img.width * (imgSize / 100),
-        img.height * (imgSize / 100)
+        -((imgWidth) / 200),
+        -((imgHeight) / 200),
+        imgWidth,
+        imgHeight
       );
       ctx.restore();
 
@@ -190,7 +198,7 @@ function Camera() {
           width: `${divSize}%`,
         }}
       >
-        <img src={imgSrc} width={`${imgSize}%`} />
+        <img ref={imageRef} src={imgSrc} width={`${imgSize}%`} />
       </div>
       <div className="camera-div">
         <button

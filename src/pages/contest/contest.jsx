@@ -58,7 +58,7 @@ const Contest = () => {
                     <span>작성자: {post.authorNickname}</span>
                     <span>제목: {post.title}</span>
                     <div className="SizedBox"></div>
-                    <LikeButton />
+                    <LikeButton postId={post.id} postLikes={post.likes}/>
                   </div>
                 </div>
               </div>
