@@ -96,7 +96,7 @@ function LogIn_noMember() {
             } catch (error) {
                 console.error('에러코드:', error);
                 //비동기 처리가 완료된 후에 history 함수를 호출
-                history('/g'); //페이지 이동
+                history('/sign-up'); //페이지 이동
             }
         } else {
             setShowToast_verify(false);
@@ -104,6 +104,9 @@ function LogIn_noMember() {
             setValid('False');
         }
     };
+
+    window.localStorage.setItem('phone-username', PhoneUsername);
+
 
     useEffect(() => {
         if (verify === '') {
