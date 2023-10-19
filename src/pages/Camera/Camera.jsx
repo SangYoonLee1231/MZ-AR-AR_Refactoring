@@ -8,6 +8,7 @@ function Camera() {
   const [imgSrc, setImgSrc] = useState("/images/images-2.jpg");
   const [imgPos, setImgPos] = useState({ x: 0, y: 0 });
   const [imgSize, setImgSize] = useState(100); // 슬라이더로 조절할 이미지 크기, 퍼센트 단위
+  const [divSize, setDivSize] = useState(50); // div 크기를 조절하기 위한 상태
   const [rotation, setRotation] = useState(0); // 이미지 회전 각도
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   //   const [capturedImgSrc, setCapturedImgSrc] = useState("");
@@ -57,29 +58,24 @@ function Camera() {
       const moveX = e.clientX || e.touches[0].clientX;
       const moveY = e.clientY || e.touches[0].clientY;
 
-      const newPosX = moveX - offsetX;
-      const newPosY = moveY - offsetY;
+      let newPosX = moveX - offsetX;
+      let newPosY = moveY - offsetY;
 
       const videoElement = videoRef.current;
       const videoWidth = videoElement.offsetWidth;
       const videoHeight = videoElement.offsetHeight;
 
-      const imgElement = document.querySelector("img");
-      const imgWidth = imgElement.offsetWidth;
-      const imgHeight = imgElement.offsetHeight;
+      const divElement = document.querySelector(".image-div");
+      const divWidth = divElement.offsetWidth; // 변경된 부분: div의 크기를 가져옵니다.
+      const divHeight = divElement.offsetHeight; // 변경된 부분: div의 크기를 가져옵니다.
 
-      if (
-        newPosX >= 0 &&
-        newPosX <= videoWidth - imgWidth &&
-        newPosY >= 0 &&
-        newPosY <= videoHeight - imgHeight
-      ) {
-        console.log(`moveX: ${moveX}, moveY: ${moveY}`); // 현재 위치 로깅
-        setImgPos({
-          x: newPosX,
-          y: newPosY,
-        });
-      }
+      newPosX = Math.min(Math.max(0, newPosX), videoWidth - divWidth); // 변경된 부분: div의 크기를 이용합니다.
+      newPosY = Math.min(Math.max(0, newPosY), videoHeight - divHeight); // 변경된 부분: div의 크기를 이용합니다.
+
+      setImgPos({
+        x: newPosX,
+        y: newPosY,
+      });
     };
 
     const handleMouseUp = () => {
@@ -102,24 +98,25 @@ function Camera() {
     const videoWidth = videoElement.offsetWidth;
     const videoHeight = videoElement.offsetHeight;
 
-    const imgElement = document.querySelector("img");
-    const imgWidth = imgElement.naturalWidth * (newSize / 100);
-    const imgHeight = imgElement.naturalHeight * (newSize / 100);
+    const divElement = document.querySelector(".image-div");
+    const divWidth = divElement.offsetWidth * (newSize / 100);
+    const divHeight = divElement.offsetHeight * (newSize / 100);
 
     let newX = imgPos.x;
     let newY = imgPos.y;
 
-    // 이미지가 웹캠 영역을 벗어나는지 확인하고, 벗어난다면 영역 안으로 재조정
-    if (imgPos.x + imgWidth > videoWidth) {
-      newX = videoWidth - imgWidth;
+    // div가 웹캠 영역을 벗어나는지 확인하고, 벗어난다면 영역 안으로 재조정
+    if (imgPos.x + divWidth > videoWidth) {
+      newX = videoWidth - divWidth;
     }
-    if (imgPos.y + imgHeight > videoHeight) {
-      newY = videoHeight - imgHeight;
+    if (imgPos.y + divHeight > videoHeight) {
+      newY = videoHeight - divHeight;
     }
 
     setImgPos({ x: newX, y: newY });
-    setImgSize(newSize);
+    setDivSize(newSize);  // 상태 업데이트
   };
+
 
   const capture = () => {
     const videoElement = videoRef.current;
@@ -165,7 +162,7 @@ function Camera() {
   };
 
   return (
-    <div className="camera-body">
+    <div className="camera-body"  style={{ overflow: "hidden" }}>
       <video
         ref={videoRef}
         className="camera-video"
@@ -181,7 +178,7 @@ function Camera() {
         style={{ display: "none" }}
       ></canvas>
       <div
-        className="camera-div"
+        className="image-div"
         onMouseDown={handleMouseDown}
         onTouchStart={handleMouseDown}
         style={{
@@ -190,6 +187,7 @@ function Camera() {
           left: imgPos.x,
           cursor: "grab",
           transform: `rotate(${rotation}deg)`,
+          width: `${divSize}%`,
         }}
       >
         <img src={imgSrc} width={`${imgSize}%`} />
@@ -212,9 +210,9 @@ function Camera() {
         <input
           className="camera-input"
           type="range"
-          min="70"
-          max="100"
-          value={imgSize}
+          min="40"
+          max="60"
+          value={divSize}
           onChange={handleImageSizeChange}
         />
       </div>
