@@ -15,7 +15,7 @@ const WillYouPost = () => {
       <div className="body">
         <div className="captured-image-area">
           <div className="sized-box">
-            <img src={`${capturedImgUrl}`} width="600px" />
+            <img src={`${capturedImgUrl}`} />
           </div>
         </div>
 

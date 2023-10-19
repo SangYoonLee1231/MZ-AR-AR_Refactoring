@@ -10,11 +10,17 @@
 }
 
 .captured-image-area {
+  .sized-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+  }
 }
 
 .captured-image-button-area {
   display: flex;
-  width: 500px;
+  width: 80vw;
   justify-content: space-between;
 
   div {
@@ -36,11 +42,12 @@
   flex-direction: row;
   align-items: center;
   border: 2px solid rgb(251, 131, 131);
-  width: 500px;
+  width: 80vw;
+  padding: 10px;
 
   .text-area {
     .title {
-      font-size: x-large;
+      font-size: large;
     }
 
     .bold {
@@ -56,6 +63,7 @@
       border-radius: 5px;
       font-size: medium;
       font-weight: 700;
+      margin: 5px 0px;
     }
   }
 }
@@ -67,7 +75,7 @@
 }
 
 .horiz-bigButton-style {
-  width: 420px;
+  width: 75vw;
   height: 170px;
   margin-top: 20px;
   border-radius: 30%;
