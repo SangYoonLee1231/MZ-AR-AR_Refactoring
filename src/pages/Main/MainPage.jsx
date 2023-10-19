@@ -45,9 +45,11 @@ const Main = () => {
             <span>이 함께합니다</span>
           </div>
         </div>
-        <button className="banner-innovation-ar-button">
-          AR 센터 바로가기
-        </button>
+        <Link to="/ar-center-page">
+          <button className="banner-innovation-ar-button">
+            AR 센터 바로가기
+          </button>
+        </Link>
       </div>
 
       <div className="center">
@@ -61,9 +63,6 @@ const Main = () => {
 
         <ImageSlider />
         <div className="center">
-          <div className="SizedBox"></div>
-          <div className="SizedBox"></div>
-          <div className="SizedBox"></div>
           <div className="SizedBox"></div>
           <div className="SizedBox"></div>
           <div className="SizedBox"></div>
