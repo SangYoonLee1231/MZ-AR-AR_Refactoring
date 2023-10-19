@@ -36,13 +36,13 @@ const A = () => {
               <button className="full-button-vertical-right">
                 <div className="righted-font">
                   <span className="big-font">AR</span>
-                  <span className="big-font">제품 착용 후</span>
-                  <span className="big-font">사진찍기</span>
+                  <span className="big-font">제품 검색</span>
+                  {/* <span className="big-font">사진찍기</span> */}
                   <div className="SizedBox"></div>
-                  <span>포토존을 찾아</span>
+                  <span>원하는 제품의</span>
                   <div className="SizedBox"></div>
-                  <span>독특한 사진을</span>
-                  <span>찍어보세요</span>
+                  <span>제품 번호를</span>
+                  <span>찾아보세요</span>
                 </div>
                 <div className="button-icon">
                   <img src="/images/camera-icon.png" width="115px" />
