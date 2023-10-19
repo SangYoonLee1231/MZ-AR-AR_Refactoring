@@ -20,14 +20,15 @@ a {
 }
 
 .bigButton-style {
-  width: 200px;
+  width: 40vw;
   height: 500px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
 }
 
 .horiz-bigButton-style {
-  width: 420px;
+  display: flex;
+  justify-content: center;
   height: 170px;
   margin-top: 20px;
 }
@@ -42,7 +43,7 @@ a {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    width: 200px;
+    width: 40vw;
     height: 500px;
     border-radius: 10px;
     background-color: #1e1e1e;
@@ -61,7 +62,7 @@ a {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    width: 200px;
+    width: 40vw;
     height: 500px;
     border-radius: 10px;
     background-color: rgb(251, 131, 131);
@@ -85,7 +86,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 420px;
+  width: 83vw;
   height: 170px;
   padding: 20px 5px;
   border-radius: 10px;

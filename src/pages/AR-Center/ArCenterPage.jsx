@@ -16,9 +16,10 @@ const A = () => {
               <button className="full-button-vertical-left">
                 <div className="lefted-font">
                   <span className="big-font">AR로</span>
-                  <span className="big-font">제품 착용해보기</span>
+                  <span className="big-font">제품</span>
+                  <span className="big-font">착용해보기</span>
                   <div className="SizedBox"></div>
-                  <span>진열돼있지 않은 상품도</span>
+                  <span>진열돼있지 않은</span>
                   <span>상품도</span>
                   <div className="SizedBox"></div>
                   <span>지금 바로</span>
@@ -34,7 +35,8 @@ const A = () => {
             <Link to="/camera-user">
               <button className="full-button-vertical-right">
                 <div className="righted-font">
-                  <span className="big-font">AR 트릭아트</span>
+                  <span className="big-font">AR</span>
+                  <span className="big-font">트릭아트</span>
                   <span className="big-font">사진찍기</span>
                   <div className="SizedBox"></div>
                   <span>포토존을 찾아</span>
