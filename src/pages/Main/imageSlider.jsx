@@ -53,8 +53,8 @@ class ImageSlider extends Component {
     return (
       <div className="image-slider">
         <div className="lefted">
-          <a>AR 트릭아트 사진을 찍을 수 있는</a>
-          <a>포토존의 위치를 확인하세요.</a>
+          <p>AR 트릭아트 사진을 찍을 수 있는</p>
+          <p>포토존의 위치를 확인하세요.</p>
         </div>
         <div className="map">
           <img
@@ -64,13 +64,17 @@ class ImageSlider extends Component {
           />
           <div className="info-image-text">{imageText}</div>
         </div>
+
         <div className="SizedBox"></div>
-        <button className="floor-button-style" onClick={this.prevImage}>
-          이전층
-        </button>
-        <button className="floor-button-style" onClick={this.nextImage}>
-          다음층
-        </button>
+
+        <div className="floor-button-area">
+          <button className="floor-button-style" onClick={this.prevImage}>
+            이전층
+          </button>
+          <button className="floor-button-style" onClick={this.nextImage}>
+            다음층
+          </button>
+        </div>
       </div>
     );
   }
