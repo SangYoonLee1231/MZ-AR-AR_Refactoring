@@ -41,6 +41,7 @@
   display: flex;
 }
 
+// banner 영역 -------------------------------------
 .banner {
   display: flex;
   flex-direction: column;
@@ -50,9 +51,13 @@
 
   &-font-style {
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding-top: 30px;
-    padding-left: 100px;
+    padding-left: 30px;
     font-weight: 700;
+    font-size: 25px;
+    width: 100%;
   }
 
   &-mzarar-style {
@@ -61,6 +66,7 @@
     padding-right: 10px;
     padding-bottom: 10px;
     border-radius: 15px;
+    margin-left: 15px;
     background-color: rgb(224, 245, 92);
     font-size: 50;
     font-weight: 700;
@@ -74,6 +80,50 @@
     font-weight: 700;
   }
 }
+
+// banner2 영역 -------------------------------------
+.banner-innovation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vx;
+  height: 250px;
+  background-color: #EBEBEB;
+  font-family: "MyLotteBold";
+  padding: 10px;
+
+  &-ment-style{
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    padding-right: 80px;
+    align-items: end;
+    width: 100vw;
+    font-size: 50px;
+  }
+
+  &-project{
+    color: #E0F55C;
+    text-shadow: 0px 2px 6px black;
+    font-weight: bold;
+  }
+
+  &-ar-button{
+    width: 400px;
+    height: 80px;
+    border: none;
+    border-radius: 100px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white; /* 버튼의 배경색을 추정하여 사용하였습니다. 실제 색상 코드를 사용해주세요. */
+    color: #FF5733;
+    font-weight: bold;
+    font-family: "MyLotteBold";
+    font-size: 40px;
+  }
+}
+
+
 
 .fontColor {
   color: rgb(224, 245, 92);
@@ -154,23 +204,60 @@ to {
   font-size: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .banner {
-    height: 250px;
+    height: 220px;
 
     &-font-style {
       display: flex;
-      justify-content: center;
+      justify-content: left;
       align-items: center;
+      padding-left: 30px;
+      font-size: 25px;
       width: 100%;
+    }
+
+    .fontColor {
+      font-size: 25px;
+    }
+
+    &-ment-style-container {
+      display: flex;
+      justify-content: right;
+      padding-right: 30px;
+      width: auto;
     }
 
     &-ment-style {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      width: 100%;
+      height: 135px;
+    }
+  }
+
+  .banner-innovation {
+    height: 170px;
+  
+    &-ment-style{
+      padding-right: 40px;
+  
+      span {
+        font-size: 24px;
+      }
+    }
+  
+    &-project{
+      font-size: 12px;
+    }
+  
+    &-ar-button{
+      width: 300px;
+      height: 60px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: white; /* 버튼의 배경색을 추정하여 사용하였습니다. 실제 색상 코드를 사용해주세요. */
+      font-size: 30px;
     }
   }
 }

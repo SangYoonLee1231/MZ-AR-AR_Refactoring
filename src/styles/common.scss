@@ -5,3 +5,10 @@
 body {
   width: device-width;
 }
+
+@font-face {
+  font-family: 'MyLotteBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.0/MyLotteBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

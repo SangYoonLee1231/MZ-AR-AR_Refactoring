@@ -10,6 +10,7 @@ import "./MainPage.scss";
 import Nav from "../../components/Nav.jsx";
 import Header from "../../components/header.jsx";
 import ImageSlider from "./imageSlider.jsx";
+import Register from "./Register.jsx";
 
 //화면 Main(메인화면) 컴포넌트를 만든다
 const Main = () => {
@@ -19,29 +20,41 @@ const Main = () => {
       <div className="banner">
         <div className="banner-font-style">
           <span className="fontColor">MZ</span>
-          <span style={{ color: "white", fontSize: 30 }}>를 잘</span>
+          <span style={{color: "white"}}>를 잘</span>
           <span className="fontColor">AR</span>
-          <span style={{ color: "white", fontSize: 30 }}>니깐!</span>
+          <span style={{color: "white"}}>니깐!</span>
         </div>
-        <div className="banner-ment-style">
-          <span style={{ color: "white", fontSize: 35 }}>지금 분당점은?</span>
-          <div className="SizedBox"></div>
-          <div className="banner-mzarar-style">
-            <span style={{ color: "black", fontSize: 45, padding: 20 }}>
-              MZ-AR-AR
-            </span>
+        <div className="banner-ment-style-container">
+          <div className="banner-ment-style">
+            <span style={{ color: "white", fontSize: 35 }}>지금 분당점은?</span>
+            {/* <div className="SizedBox"></div> */}
+            <div className="banner-mzarar-style">
+              <span style={{ color: "black", fontSize: 45, padding: 20 }}>MZ-AR-AR</span>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div className="banner-innovation">
+        <div className="banner-innovation-ment-style">
+          <span>새롭게 탄생한 분당점의 혁신</span>
+          <div>
+            <span className="banner-innovation-project">MZARAR</span>
+            <span>이 함께합니다</span>
+          </div>
+        </div>
+        <button className="banner-innovation-ar-button">AR 센터 바로가기</button>
       </div>
 
       <div className="center">
         <div className="SizedBox"></div>
         <div className="horiz-style">
           <Link to="/login-page">
-            <button className="button-horiz">로그인</button>
+            <Register />
           </Link>
           <div className="SizedBox"></div>
         </div>
+        
         <ImageSlider />
         <div className="center">
           <div className="SizedBox"></div>
