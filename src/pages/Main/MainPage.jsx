@@ -19,19 +19,30 @@ const Main = () => {
       <div className="banner">
         <div className="banner-font-style">
           <span className="fontColor">MZ</span>
-          <span style={{ color: "white", fontSize: 30 }}>를 잘</span>
+          <span style={{color: "white"}}>를 잘</span>
           <span className="fontColor">AR</span>
-          <span style={{ color: "white", fontSize: 30 }}>니깐!</span>
+          <span style={{color: "white"}}>니깐!</span>
         </div>
-        <div className="banner-ment-style">
-          <span style={{ color: "white", fontSize: 35 }}>지금 분당점은?</span>
-          <div className="SizedBox"></div>
-          <div className="banner-mzarar-style">
-            <span style={{ color: "black", fontSize: 45, padding: 20 }}>
-              MZ-AR-AR
-            </span>
+        <div className="banner-ment-style-container">
+          <div className="banner-ment-style">
+            <span style={{ color: "white", fontSize: 35 }}>지금 분당점은?</span>
+            {/* <div className="SizedBox"></div> */}
+            <div className="banner-mzarar-style">
+              <span style={{ color: "black", fontSize: 45, padding: 20 }}>MZ-AR-AR</span>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div className="banner-innovation">
+        <div className="banner-innovation-ment-style">
+          <span>새롭게 탄생한 분당점의 혁신</span>
+          <div>
+            <span className="banner-innovation-project">MZARAR</span>
+            <span>이 함께합니다</span>
+          </div>
+        </div>
+        <button className="banner-innovation-ar-button">AR 센터 바로가기</button>
       </div>
 
       <div className="center">
