@@ -15,43 +15,25 @@ function ArProductNumber() {
   // API 통신
   const [photoUrl, setPhotoUrl] = useState(null);
   const [productNum, setProductNum] = useState(0);
+  const [shouldNavigate, setShouldNavigate] = useState(false);
 
   useEffect(() => {
-    console.log("photoUrl 변경됨:", photoUrl);
-    window.localStorage.setItem("photo", photoUrl);
+    if (photoUrl !== null) {
+      console.log("photoUrl 변경됨:", photoUrl);
+      window.localStorage.setItem("photo", photoUrl);
+      setShowToast(true);  // 토스트 메시지를 보여줍니다.
+      setTimeout(() => {
+        setShowToast(false);  // 0.5초 후 토스트 메시지를 숨깁니다.
+        setShouldNavigate(true);  // 페이지 이동을 허용합니다.
+      }, 500);
+    }
   }, [photoUrl]);
-
-  // const fetchData = () => {
-  //   const serverURL = process.env.REACT_APP_SERVER_URL;
-  //   http://back.mzarar.kro.kr/api/products/9000;
-  //   https://back.mzarar.kro.kr/api
-
-  //   fetch(` ${serverURL}/products/${productNum}`)
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         console.log(
-  //           "API 요청에 성공했습니다. 응답 상태 코드:",
-  //           response.status
-  //         );
-  //         return response.blob();
-  //       } else {
-  //         console.log(
-  //           "API 요청이 실패했습니다. 응답 상태 코드:",
-  //           response.status
-  //         );
-  //         throw new Error("Request failed");
-  //       }
-  //     })
-  //     .then((blobData) => {
-  //       console.log(blobData);
-  //       // Blob 데이터를 URL로 변환하여 이미지를 표시합니다.
-  //       const imageUrl = URL.createObjectURL(blobData);
-  //       setImageURL(imageUrl);
-  //     })
-  //     .catch((error) => {
-  //       console.error("API Error:", error);
-  //     });
-  // };
+  
+  useEffect(() => {
+    if (shouldNavigate) {
+      history("/camera");  // 페이지 이동
+    }
+  }, [shouldNavigate]);
 
   const fetchData = async () => {
     const serverURL = process.env.REACT_APP_SERVER;
@@ -66,12 +48,14 @@ function ArProductNumber() {
 
       if (response.status === 200) {
         setPhotoUrl(response.data.image); // 해당 photoUrl은 useEffect에서 추적하여 반영 예정
-      } else if (response.status === 404) {
-        // 응답이 404인 경우 처리
-        setPhotoUrl(null);
       }
     } catch (error) {
-      console.error("에러코드:", error);
+      if (error.response && error.response.status === 404) {
+        // 404 에러를 여기에서도 처리 가능합니다.
+        alert("해당 제품이 존재하지 않습니다");
+      } else {
+        console.error("에러코드:", error);
+      }
       setPhotoUrl(null); // 에러 발생 시 photoUrl을 null로 설정
     }
   };
@@ -84,18 +68,7 @@ function ArProductNumber() {
   };
   const handleLogIn = () => {
     if (productNum !== "") {
-      //
-      // console.log(productNum);
       fetchData();
-      // localStorage.setItem("product-image-url", photoUrl);
-
-      //
-      setShowToast(true);
-      setTimeout(() => {
-        setShowToast(false);
-        //ar캠으로 이동하기
-        history("/camera");
-      }, 500); //0.8초 후 토스트 메시지를 숨기고 이동
     } else {
       alert("정확한 제품번호를 입력해주세요!");
     }

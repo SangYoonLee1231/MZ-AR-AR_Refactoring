@@ -1,11 +1,46 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Routes, useNavigate} from "react-router-dom";
 import Nav from "../../components/Nav.jsx";
 import "./WillYouPost.scss";
 import Header from "../../components/header.jsx";
 
 const WillYouPost = () => {
+  const history = useNavigate();
   const capturedImgUrl = window.localStorage.getItem("captured-img-src");
+
+  const handleSave = () => {
+    const a = document.createElement("a");
+    a.href = capturedImgUrl;
+    a.download = "MZARAR-captured-image.png";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: '공유하기',
+        text: '이미지를 공유해보세요!',
+        url: capturedImgUrl // 또는 다른 공유하려는 URL
+      }).then(() => {
+        console.log('공유 성공');
+      }).catch((error) => {
+        console.log('공유 실패', error);
+      });
+    } else {
+      console.log('Web Share API를 지원하지 않습니다.');
+    }
+  };
+
+  const handleParticipate = () => {
+    const username = window.localStorage.getItem("name-username");
+    if (username) {
+      history("/write-title");
+    } else {
+      alert("로그인이 필요합니다.");
+    }
+  };
 
   return (
     <div>
@@ -22,9 +57,11 @@ const WillYouPost = () => {
         <div className="SizedBox"></div>
 
         <div className="captured-image-button-area">
-          <div>재촬영</div>
-          <div>저장</div>
-          <div>공유</div>
+          <Link to="/camera">
+            <div>재촬영</div>
+          </Link>
+          <div onClick={handleSave}>저장</div>
+          <div onClick={handleShare}>공유</div>
         </div>
 
         <div className="SizedBox"></div>

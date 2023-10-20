@@ -164,6 +164,15 @@ function Camera() {
       // imgTag.src = dataURL;
       // document.body.appendChild(imgTag);
 
+      const stream = videoElement.srcObject;
+      const tracks = stream.getTracks();
+      
+      tracks.forEach((track) => {
+        track.stop();
+      });
+
+      videoElement.srcObject = null;
+
       window.localStorage.setItem("captured-img-src", dataURL);
       history("/will-you-post");
     };
