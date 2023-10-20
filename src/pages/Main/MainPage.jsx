@@ -11,6 +11,7 @@ import Nav from "../../components/Nav.jsx";
 import Header from "../../components/header.jsx";
 import ImageSlider from "./imageSlider.jsx";
 import Register from "./Register.jsx";
+import Storytelling from "./Storytelling";
 
 //화면 Main(메인화면) 컴포넌트를 만든다
 const Main = () => {
@@ -67,13 +68,10 @@ const Main = () => {
           )
         }
         </div>
-
         <ImageSlider />
+        <Storytelling />
 
         <div className="center">
-          <div className="SizedBox"></div>
-          <div className="SizedBox"></div>
-          <div className="SizedBox"></div>
           <div className="SizedBox"></div>
           <div className="SizedBox"></div>
           <div className="SizedBox"></div>
