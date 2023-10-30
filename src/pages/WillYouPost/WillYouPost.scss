@@ -1,0 +1,125 @@
+@import "./../../styles/common";
+@import "./../../styles/mixin";
+// @import './../../styles/variables';
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.captured-image-area {
+  .sized-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+  }
+}
+
+.captured-image-button-area {
+  display: flex;
+  width: 80vw;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    font-size: larger;
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    div {
+      width: 100px;
+      height: 50px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    div {
+      width: 90px;
+      height: 50px;
+    }
+  }
+}
+
+.will-you-post-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid rgb(251, 131, 131);
+  width: 80vw;
+  padding: 10px;
+
+  .text-area {
+    .title {
+      font-size: large;
+    }
+
+    .bold {
+      color: #ff3d3d;
+      font-weight: 700;
+    }
+  }
+
+  .button-area {
+    button {
+      width: 130px;
+      height: 40px;
+      border-radius: 5px;
+      font-size: medium;
+      font-weight: 700;
+      margin: 5px 0px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    .button-area{
+      display: flex;
+      flex-direction: row;
+      .button-style{
+        font-size: small;
+      }
+    }
+  }
+}
+
+.horiz-style {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.horiz-bigButton-style {
+  width: 75vw;
+  height: 170px;
+  margin-top: 20px;
+  border-radius: 30%;
+}
+
+.button-style {
+  margin: 0px 5px;
+  border-radius: 10px;
+  background-color: #ff3d3d;
+  border: 2px solid #ff3d3d;
+  color: white;
+  font-size: 15px;
+}
+
+.big-font {
+  font-size: 20px;
+}
+
+.SizedBox {
+  height: 30px;
+}

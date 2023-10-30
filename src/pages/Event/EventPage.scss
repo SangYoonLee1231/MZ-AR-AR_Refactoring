@@ -1,3 +1,93 @@
-@import "./../../styles/common";
-@import "./../../styles/mixin";
+// @import "./../../styles/common";
+// @import "./../../styles/mixin";
 // @import './../../styles/variables';
+
+.SizedBox {
+  height: 50px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.event-page-phrase {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 auto;
+  font-family: "MyLotteBold";
+  font-size: x-large;
+  text-align: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.margin {
+  margin-left: 20%;
+}
+
+.ad-this-style {
+  display: flex;
+  // justify-content: space-between;
+  width: 80vw;
+  height: 200px;
+  // padding: 20px;
+  border-radius: 30px;
+  border: 1px solid black;
+  margin-bottom: 30px;
+  overflow: hidden; // 새로 추가
+  position: relative; // 새로 추가
+
+  .event-name {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  img {
+    position: absolute; // 새로 추가
+    top: 50%; // 새로 추가
+    left: 50%; // 새로 추가
+    height: 100%; // 새로 추가
+    transform: translate(-50%, -50%); // 새로 추가
+    object-fit: cover; // 새로 추가
+  }
+
+  @media (max-width: 600px) {
+    img {
+      height: auto; // 이미지의 원래 세로 길이를 유지
+      width: 100%;  // div의 가로 길이에 맞게 이미지 가로 길이를 조정
+      top: auto; // 중앙 배치 해제
+      left: auto; // 중앙 배치 해제
+      position: relative; // 상대 위치로 변경
+      transform: none; // 위치 이동 해제
+      object-fit: contain; // 가로 길이에 맞게 이미지를 조정, 세로는 비율 유지
+    }
+  }
+}
+
+.game-button {
+  width: 90vw;
+  height: 50px;
+  border-radius: 10px;
+  //   background-color: rgb(251, 131, 131);
+  //   border: 2px solid rgb(251, 131, 131);
+  background-color: white;
+  border: 1.5px solid black;
+  //   color: white;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "MyLotteBold";
+}
+
+// .game-button:hover {
+//   background-color: black;
+//   color: white;
+// }

@@ -1,0 +1,66 @@
+.SizedBox_ver1 {
+    height: 100px;
+}
+
+.SizedBox_ver2 {
+    width: 30px;
+}
+
+.vertical-center-lineUp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 1rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.LogIn_noMemberPage-button-style {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(225, 47, 54);
+    border: 2px solid rgb(225, 47, 54);
+    color: white;
+    font-size: 15px;
+}
+
+.verify-button {
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    font-size: 15px;
+}
+
+.disabled-button {
+    background-color: rgb(130, 36, 39) !important;
+    border: 2px solid rgb(130, 36, 39) !important;
+}
+
+.columnDIV {
+    display: flex;
+    flex-direction: column;
+}
+
+.rowDIV {
+    display: flex;
+    flex-direction: row;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.input:focus {
+    outline: none;
+    border-bottom: 1px solid rgb(251, 131, 131);
+}

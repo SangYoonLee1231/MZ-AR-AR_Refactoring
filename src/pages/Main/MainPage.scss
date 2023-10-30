@@ -1,3 +1,323 @@
-@import "./../../styles/common";
-@import "./../../styles/mixin";
+// @import "./../../styles/common";
+// @import "./../../styles/mixin";
 // @import './../../styles/variables';
+
+.main-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  text-align: center;
+
+  &-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+
+  &-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+  &-link {
+    color: #61dafb;
+  }
+}
+
+// @media (prefers-reduced-motion: no-preference) {
+//   .App-logo {
+//     animation: App-logo-spin infinite 20s linear;
+//   }
+// }
+
+.header-style {
+  display: flex;
+}
+
+// banner 영역 -------------------------------------
+.banner {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 200px;
+  background-color: black;
+
+  &-font-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 25px;
+    font-family: "MyLotteBold";
+    width: 100%;
+  }
+
+  &-mzarar-style {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-radius: 30px;
+    margin-left: 15px;
+    background-color: rgb(224, 245, 92);
+    font-size: 50;
+    font-weight: 700;
+  }
+
+  &-ment-style {
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-family: "MyLotteBold";
+  }
+}
+
+// banner2 영역 -------------------------------------
+.banner-innovation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vx;
+  height: 200px;
+  background-color: #ebebeb;
+  font-family: "MyLotteBold";
+  padding: 10px;
+
+  &-ment-style {
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    margin-top: 10px;
+    padding-right: 80px;
+    align-items: end;
+    width: 100vw;
+    font-size: 25px;
+    // padding: 10px 0px;
+  }
+
+  &-ment-style-2 {
+    margin-top: 15px;
+  }
+
+  &-project {
+    color: #e0f55c;
+    text-shadow: 0px 2px 6px black;
+    font-weight: bold;
+  }
+
+  &-ar-button {
+    width: 450px;
+    height: 60px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white; /* 버튼의 배경색을 추정하여 사용하였습니다. 실제 색상 코드를 사용해주세요. */
+    color: #ff5733;
+    font-weight: bold;
+    font-family: "MyLotteBold";
+    font-size: 30px;
+  }
+}
+
+.fontColor {
+  color: rgb(224, 245, 92);
+  font-size: 30px;
+}
+
+.SizedBox {
+  width: 20px;
+  height: 20px;
+}
+
+keyframes App-logo-spin {
+  transform: rotate(0deg);
+}
+
+to {
+  transform: rotate(360deg);
+}
+
+.map {
+  width: 100%;
+  border-radius: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .info-image {
+    width: 100%;
+    // height: 400px;
+  }
+}
+
+.image-slider {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lefted {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+
+  p {
+    padding: 5px 0px;
+  }
+}
+
+.horiz-style {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.button-horiz {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(251, 131, 131);
+  border: 2px solid rgb(251, 131, 131);
+  color: white;
+  font-size: 10px;
+}
+
+.floor-button-area {
+}
+
+.floor-button-style {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: rgb(251, 131, 131);
+  border: 2px solid rgb(251, 131, 131);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 5px;
+}
+
+@media (max-width: 600px) {
+  .banner {
+    height: 230px;
+
+    &-font-style {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding-left: 30px;
+      font-size: 25px;
+      width: 100%;
+    }
+
+    .fontColor {
+      font-size: 25px;
+    }
+
+    &-ment-style-container {
+      display: flex;
+      justify-content: center;
+      // padding-right: 30px;
+      width: auto;
+
+      .banner-ment-style {
+        color: "black";
+        font-size: 45;
+        padding: 20;
+      }
+    }
+
+    &-ment-style {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 135px;
+    }
+  }
+
+  .banner-innovation {
+    height: 170px;
+
+    &-ment-style {
+      padding-right: 40px;
+
+      span {
+        font-size: 24px;
+      }
+    }
+
+    &-project {
+      font-size: 12px;
+    }
+
+    &-ar-button {
+      width: 80vw;
+      height: 45px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: white; /* 버튼의 배경색을 추정하여 사용하였습니다. 실제 색상 코드를 사용해주세요. */
+      font-size: 25px;
+    }
+  }
+}
+
+// @media (max-width: 380px) {
+//   .banner {
+//     height: 230px;
+
+//     &-font-style {
+//       display: flex;
+//       justify-content: left;
+//       align-items: center;
+//       padding-left: 30px;
+//       font-size: 25px;
+//       width: 100%;
+//     }
+
+//     .fontColor {
+//       font-size: 25px;
+//     }
+
+//     &-ment-style-container {
+//       display: flex;
+//       justify-content: center;
+//       // padding-right: 30px;
+//       width: auto;
+//     }
+
+//     &-ment-style {
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: space-between;
+//       align-items: center;
+//       height: 135px;
+//       font-size: 30px;
+//     }
+//   }
+// }

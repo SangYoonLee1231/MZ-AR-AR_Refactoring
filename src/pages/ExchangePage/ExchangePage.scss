@@ -1,0 +1,58 @@
+@import "./../../styles/common";
+@import "./../../styles/mixin";
+// @import './../../styles/variables';
+
+.center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.horiz-style {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.big-font-for-exchange-page {
+    font-size: 35px;
+}
+
+.middle-font {
+    font-size: 20px;
+}
+
+.SizedBox {
+    height: 30px;
+}
+
+.colored-div-style {
+    width: 100%;
+    background-color: rgb(251, 131, 131);
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.PlusMinusButton {
+    width: 25px;
+    height: 25px;
+    border-radius: 10px;
+    background-color: rgb(251, 131, 131);
+    border: 2px solid rgb(251, 131, 131);
+    color: white;
+    font-size: 15px;
+}
+
+.ExchangeOrKeepButton {
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(251, 131, 131);
+    border: 2px solid rgb(251, 131, 131);
+    color: white;
+    font-size: 15px;
+}

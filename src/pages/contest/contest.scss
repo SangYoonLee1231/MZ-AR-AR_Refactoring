@@ -1,0 +1,74 @@
+// @import "./../../styles/common";
+// @import "./../../styles/mixin";
+// @import './../../styles/variables';
+
+.SizedBox {
+  width: 20px;
+  height: 50px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.photo-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // 상대적인 크기로 조정
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr; // 375px 이하에서는 1열로
+  }
+
+  span {
+    padding-top: 10px;
+    font-size: larger;
+  }
+}
+
+.horiz-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  //   align-items: center;
+}
+
+.margin {
+  margin-left: 20%;
+}
+
+.ad-style {
+  // width: 100%; // 상대적인 크기로
+  height: 330px;
+  border-radius: 30px;
+  //   border: 2px solid red;
+  background-color: #ededed;
+  margin-bottom: 30px;
+
+  img {
+    width: 340px;
+    height: 170px;
+    border-radius: 15px;
+    border: 2px solid red;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 374px) {
+    img {
+      width: 310px;
+    }
+  }
+}
+
+.like-button-style {
+  width: 250px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: rgb(251, 131, 131);
+  border: 2px solid rgb(251, 131, 131);
+  color: white;
+  font-size: 15px;
+}

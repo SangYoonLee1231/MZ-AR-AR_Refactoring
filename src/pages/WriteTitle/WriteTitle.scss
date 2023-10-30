@@ -1,0 +1,52 @@
+// @import "./../../styles/common";
+// @import "./../../styles/mixin";
+// @import './../../styles/variables';
+
+.bold {
+  color: #ff3d3d;
+  font-size: larger;
+  font-weight: 700;
+}
+
+.SizedBox_ver1 {
+  height: 100px;
+}
+
+.SizedBox_ver2 {
+  height: 30px;
+}
+
+.vertical-center-lineUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  height: 100vh;
+}
+
+.title-button-style {
+  width: 75px;
+  height: 30px;
+  border-radius: 6px;
+  background-color: #ff3d3d;
+  border: 2px solid #ff3d3d;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+
+  @media (max-width: 600px){
+    font-size: 10px;
+  }
+}
+
+input {
+  border: none;
+  margin-right: 10px;
+  border-bottom: 1px solid black;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 1px solid rgb(251, 131, 131);
+}
